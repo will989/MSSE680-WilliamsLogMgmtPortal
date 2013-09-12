@@ -15,10 +15,11 @@ namespace MSSE680_WilliamsLogMgmtPortal.DALUnitTest
         [TestMethod()]
         public void addOrganizationToDatabaseTest()
         {
+            //get database connection
             andy680Entities db = new andy680Entities();
 
             Organization organization = new Organization();
-            organization.OrganizationId = 1;
+            //organization.OrganizationId = 1;  - this is auto-assigned in db
             organization.Name = "testorg";
             organization.Street = "Testing St";
             organization.City = "Anytown";
@@ -26,8 +27,9 @@ namespace MSSE680_WilliamsLogMgmtPortal.DALUnitTest
             organization.Zip = "80000";
             organization.StartDate = System.DateTime.Now;
 
+            //add org to database
             db.Organizations.Add(organization);
-
+            db.SaveChanges();
             Assert.IsTrue(organization.validate());
 
         }

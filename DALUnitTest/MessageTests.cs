@@ -7,6 +7,29 @@ namespace MSSE680_WilliamsLogMgmtPortal.DALUnitTest
     [TestClass]
     public class MessageTests
     {
+
+        [TestMethod()]
+        public void addMessageToDatabaseTest()
+        {
+            //get database connection
+            andy680Entities db = new andy680Entities();
+
+            Message message = new Message();
+            //message.MessageId = 1;  - this is auto-assigned by db
+            message.CorrelationIdentifier = 1010101;
+            message.SendingOrgId = 1;
+            message.ReceivingOrgId = 1;
+            message.Severity = 3;
+            message.OrgMessage = "This is a test message";
+            message.Timestamp = System.DateTime.Now;
+
+            //add message to database
+            db.Messages.Add(message);
+            db.SaveChanges();
+
+            Assert.IsTrue(message.validate());
+
+        }
         [TestMethod()]
         public void validateGoodMessageTest()
         {

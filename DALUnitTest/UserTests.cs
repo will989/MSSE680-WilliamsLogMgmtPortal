@@ -8,6 +8,28 @@ namespace MSSE680_WilliamsLogMgmtPortal.DALUnitTest
     public class UserTests
     {
         [TestMethod()]
+        public void addUserToDatabaseTest()
+        {
+            andy680Entities db = new andy680Entities();
+
+            User user = new User();
+            //user.UserId = 1; - this is auto-assigned by db
+            user.UserName = "test";
+            user.Password = "testing";
+            user.OrganizationId = 1;
+            user.FirstName = "Test";
+            user.LastName = "User";
+            user.AdminFlag = false;
+            user.ActiveDate = System.DateTime.Now;
+
+            //add user to database
+            db.Users.Add(user);
+            db.SaveChanges();
+            Assert.IsTrue(user.validate());
+
+        }
+        
+        [TestMethod()]
         public void validateGoodUserTest()
         {
             User user = new User();
