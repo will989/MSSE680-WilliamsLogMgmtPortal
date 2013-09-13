@@ -87,6 +87,7 @@
       <DependentUpon>andy680.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\UserMethods.cs" />
+    <Compile Include="DAL\Repository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Accessibility" />

@@ -9,7 +9,7 @@ namespace MSSE680_WilliamsLogMgmtPortal.DALUnitTest
     {
 
         [TestMethod()]
-        public void addMessageToDatabaseTest()
+        public void addMessageFindMessageDeleteMessageDatabaseTest()
         {
             //get database connection
             andy680Entities db = new andy680Entities();
@@ -26,10 +26,19 @@ namespace MSSE680_WilliamsLogMgmtPortal.DALUnitTest
             //add message to database
             db.Messages.Add(message);
             db.SaveChanges();
-
             Assert.IsTrue(message.validate());
 
+            //find message
+            Message message2 = db.Messages.Find(message.MessageId);
+            int id = message2.MessageId;
+            System.Diagnostics.Debug.WriteLine("The messages's id is {0}", id);
+            Assert.IsTrue(message2.Equals(message));
+
+            //clean up by removing message
+            db.Messages.Remove(message);
+            db.SaveChanges();
         }
+
         [TestMethod()]
         public void validateGoodMessageTest()
         {

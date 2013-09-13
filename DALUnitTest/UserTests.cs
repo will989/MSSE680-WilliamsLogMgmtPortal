@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MSSE680_WilliamsLogMgmtPortal.DAL;
+using System.Diagnostics;
 
 namespace MSSE680_WilliamsLogMgmtPortal.DALUnitTest
 {
@@ -8,7 +9,7 @@ namespace MSSE680_WilliamsLogMgmtPortal.DALUnitTest
     public class UserTests
     {
         [TestMethod()]
-        public void addUserToDatabaseTest()
+        public void addUserFindUserDeleteUserToDatabaseTest()
         {
             andy680Entities db = new andy680Entities();
 
@@ -26,6 +27,16 @@ namespace MSSE680_WilliamsLogMgmtPortal.DALUnitTest
             db.Users.Add(user);
             db.SaveChanges();
             Assert.IsTrue(user.validate());
+
+            //find user
+            User user2 = db.Users.Find(user.UserId);
+            int id = user2.UserId;
+            System.Diagnostics.Debug.WriteLine("The user's id is {0}", id); 
+            Assert.IsTrue(user2.Equals(user));
+
+            //remove user
+            db.Users.Remove(user);
+            db.SaveChanges();
 
         }
         

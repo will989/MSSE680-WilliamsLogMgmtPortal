@@ -13,7 +13,7 @@ namespace MSSE680_WilliamsLogMgmtPortal.DALUnitTest
     {
 
         [TestMethod()]
-        public void addOrganizationToDatabaseTest()
+        public void addOrganizationFindOrganizationDeleteOrganizationDatabaseTest()
         {
             //get database connection
             andy680Entities db = new andy680Entities();
@@ -32,6 +32,15 @@ namespace MSSE680_WilliamsLogMgmtPortal.DALUnitTest
             db.SaveChanges();
             Assert.IsTrue(organization.validate());
 
+            //find organization
+            Organization organization2 = db.Organizations.Find(organization.OrganizationId);
+            int id = organization2.OrganizationId;
+            System.Diagnostics.Debug.WriteLine("The organization's id is {0}", id);
+            Assert.IsTrue(organization2.Equals(organization));
+
+            //clean up by removing organization
+            db.Organizations.Remove(organization);
+            db.SaveChanges();
         }
 
         [TestMethod()]
