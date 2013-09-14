@@ -23,29 +23,28 @@ namespace MSSE680_WilliamsLogMgmtPortal
                 new DbContext(ConfigurationManager.ConnectionStrings["andy680entities"].ConnectionString);
 
         }
-        /// <summary>
-        /// Dispose method for the class
-        /// </summary>
+        
+        //dispose method
         public void Dispose()
         {
             if (dataContext != null)
             {
                 dataContext.Dispose();
             }
-        }
+        }//end dispose
 
-        /// <summary>
-        /// This method is used to return a collection of objects
-        /// by specific key i.e a column name and the
-        /// specific value associated with the column
-        /// </summary>
-        /// <param name="KeyName">The name of the key</param>
-        /// <param name="KeyVal">The integer value of the column</param>
-        /// <returns></returns>
+        
+        // uses generics and returns a collection of objects
+        // by passing in a column name and the column's value
+        // Takes a string and an integer as parameters
         public virtual IQueryable<T> GetBySpecificKey(string KeyName, int KeyVal)
         {
 
             var itemParameter = Expression.Parameter(typeof(T), "item");
+
+            /*Lambda expression is an anonymous function
+            http://msdn.microsoft.com/en-us/library/bb397951.aspx
+            */
             var whereExpression = Expression.Lambda<Func<T, bool>>
                 (
                 Expression.Equal(
@@ -64,14 +63,10 @@ namespace MSSE680_WilliamsLogMgmtPortal
             }
 
         }
-        /// <summary>
-        /// This method is used to return a collection of objects
-        /// by specific key i.e a column name and the
-        /// specific value associated with the column
-        /// </summary>
-        /// <param name="KeyName">The name of the key</param>
-        /// <param name="KeyVal">The string value of the column</param>
-        /// <returns></returns>
+
+        // uses generics and returns a collection of objects
+        // by passing in a column name and the column's value
+        // Takes two strings as parameters
         public virtual IQueryable<T> GetBySpecificKey(string KeyName, string KeyVal)
         {
 
@@ -95,30 +90,23 @@ namespace MSSE680_WilliamsLogMgmtPortal
 
         }
 
-        /// <summary>
-        /// Returns all the records from a table
-        /// </summary>
-        /// <returns>Collection of records</returns>
+        
+        // Returns all the records from a table
         public virtual IQueryable<T> GetAll()
         {
+            //this returns a Set of objects
             return dataContext.Set<T>().AsQueryable();
         }
 
-        /// <summary>
-        /// Inserts a record into the database
-        /// </summary>
-        /// <param name="entity">The entity to be inserted</param>
+        // Performs an insert into the table
         public virtual void Insert(T entity)
         {
+            // adds and saves
             dataContext.Set<T>().Add(entity);
             dataContext.SaveChanges();
-
         }
 
-        /// <summary>
-        /// Deletes a record from the table
-        /// </summary>
-        /// <param name="entity">Entity to be deleted</param>
+        // Delete record from table
         public virtual void Delete(T entity)
         {
             var entry = dataContext.Entry(entity);
@@ -130,14 +118,13 @@ namespace MSSE680_WilliamsLogMgmtPortal
             {
                 dataContext.Set<T>().Attach(entity);
             }
+            // delete and save changes
             dataContext.Entry(entity).State = System.Data.EntityState.Deleted;
             dataContext.SaveChanges();
 
         }
-        /// <summary>
-        /// Updates a record into a table
-        /// </summary>
-        /// <param name="entity"></param>
+        
+        // perform update to table and save changes
         public virtual void Update(T entity)
         {
             dataContext.Set<T>().Attach(entity);
