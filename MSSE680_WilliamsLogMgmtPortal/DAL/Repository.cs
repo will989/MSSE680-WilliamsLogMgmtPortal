@@ -19,7 +19,8 @@ namespace MSSE680_WilliamsLogMgmtPortal
         public DataRepository()
         {
             //instantiate the datacontext by reading the connection string
-            dataContext = new DbContext(ConfigurationManager.ConnectionStrings["andy680entities"].ConnectionString);
+            dataContext = 
+                new DbContext(ConfigurationManager.ConnectionStrings["andy680entities"].ConnectionString);
 
         }
         /// <summary>
@@ -48,10 +49,7 @@ namespace MSSE680_WilliamsLogMgmtPortal
             var whereExpression = Expression.Lambda<Func<T, bool>>
                 (
                 Expression.Equal(
-                    Expression.Property(
-                        itemParameter,
-                       KeyName
-                        ),
+                    Expression.Property(itemParameter,KeyName),
                     Expression.Constant(KeyVal)
                     ),
                 new[] { itemParameter }
@@ -81,10 +79,7 @@ namespace MSSE680_WilliamsLogMgmtPortal
             var whereExpression = Expression.Lambda<Func<T, bool>>
                 (
                 Expression.Equal(
-                    Expression.Property(
-                        itemParameter,
-                       KeyName
-                        ),
+                    Expression.Property(itemParameter,KeyName),
                     Expression.Constant(KeyVal)
                     ),
                 new[] { itemParameter }

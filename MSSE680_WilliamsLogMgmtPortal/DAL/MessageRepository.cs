@@ -21,7 +21,7 @@ namespace MSSE680_WilliamsLogMgmtPortal.DAL
 
 
         //Update Messages
-        //(in the real solution editing messages won't be supported
+        //(in the real solution editing messages won't be supported)
         [System.ComponentModel.DataObjectMethodAttribute
         (System.ComponentModel.DataObjectMethodType.Update, true)]
         public void UpdateMessage(Message message)
@@ -55,7 +55,20 @@ namespace MSSE680_WilliamsLogMgmtPortal.DAL
             }
         }
 
-
+        //get Messages by Correlation id
+        [System.ComponentModel.DataObjectMethodAttribute
+        (System.ComponentModel.DataObjectMethodType.Select, true)]
+        public Message GetMessageByCorrelationId(int CorrelationId)
+        {
+            try
+            {
+                return objMessageRepository.GetBySpecificKey("CorrelationId", CorrelationId).FirstOrDefault<Message>();
+            }
+            catch
+            {
+                return null;
+            }
+        }
 
     }
 }
