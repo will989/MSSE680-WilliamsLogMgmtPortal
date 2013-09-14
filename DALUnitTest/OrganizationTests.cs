@@ -77,7 +77,7 @@ namespace MSSE680_WilliamsLogMgmtPortal.DALUnitTest
 
         //verify that organizations are equal
         [TestMethod()]
-        public void equalsTest()
+        public void organizationEqualsTest()
         {
             DateTime current = System.DateTime.Now;
 
@@ -105,7 +105,7 @@ namespace MSSE680_WilliamsLogMgmtPortal.DALUnitTest
 
         //verify that organizations are different
         [TestMethod()]
-        public void notEqualsTest()
+        public void organizationNotEqualsTest()
         {
             DateTime current = System.DateTime.Now;
 

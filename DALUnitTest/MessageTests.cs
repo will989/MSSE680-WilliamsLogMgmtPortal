@@ -73,7 +73,7 @@ namespace MSSE680_WilliamsLogMgmtPortal.DALUnitTest
 
         //verify that messages are equal
         [TestMethod()]
-        public void equalsTest()
+        public void messageEqualsTest()
         {
             DateTime current = System.DateTime.Now;
 
@@ -100,7 +100,7 @@ namespace MSSE680_WilliamsLogMgmtPortal.DALUnitTest
 
         //verify that messages are different
         [TestMethod()]
-        public void notEqualsTest()
+        public void messageNotEqualsTest()
         {
             DateTime current = System.DateTime.Now;
 

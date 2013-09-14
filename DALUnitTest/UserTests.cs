@@ -76,7 +76,7 @@ namespace MSSE680_WilliamsLogMgmtPortal.DALUnitTest
 
         //verify that users are equal
         [TestMethod()]
-        public void equalsTest()
+        public void userEqualsTest()
         {
             DateTime current = System.DateTime.Now;
 
@@ -106,7 +106,7 @@ namespace MSSE680_WilliamsLogMgmtPortal.DALUnitTest
 
         //verify that users are different
         [TestMethod()]
-        public void notEqualsTest()
+        public void userNotEqualsTest()
         {
             DateTime current = System.DateTime.Now;
 
