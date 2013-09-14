@@ -11,7 +11,7 @@ namespace MSSE680_WilliamsLogMgmtPortal.DAL
         //generic Message repository
         readonly IDataRepository<Message> objMessageRepository = new DataRepository<Message>();
 
-        //List all users
+        //List all messages
         [System.ComponentModel.DataObjectMethodAttribute
         (System.ComponentModel.DataObjectMethodType.Select, true)]
         public List<Message> GetAllMessages()
@@ -54,5 +54,8 @@ namespace MSSE680_WilliamsLogMgmtPortal.DAL
                 return null;
             }
         }
+
+
+
     }
 }

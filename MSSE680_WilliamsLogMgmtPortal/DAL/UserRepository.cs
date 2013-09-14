@@ -14,7 +14,7 @@ namespace MSSE680_WilliamsLogMgmtPortal.DAL
         //List all users
         [System.ComponentModel.DataObjectMethodAttribute
         (System.ComponentModel.DataObjectMethodType.Select, true)]
-        public List<User> GetAllProducts()
+        public List<User> GetAllUsers()
         {
             return objUserRepository.GetAll().ToList<User>();
         }

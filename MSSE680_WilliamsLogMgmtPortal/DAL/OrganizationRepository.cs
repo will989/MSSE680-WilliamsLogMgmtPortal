@@ -13,22 +13,16 @@ namespace MSSE680_WilliamsLogMgmtPortal.DAL
         /// </summary>
         readonly IDataRepository<Organization> objOrganizationRepository = new DataRepository<Organization>();
 
-        /// <summary>
-        /// Get all products
-        /// </summary>
-        /// <returns>Returns a list of all products</returns>
+        //list organizations
         [System.ComponentModel.DataObjectMethodAttribute
         (System.ComponentModel.DataObjectMethodType.Select, true)]
-        public List<Organization> GetAllProducts()
+        public List<Organization> GetAllOrganizations()
         {
             return objOrganizationRepository.GetAll().ToList<Organization>();
         }
 
 
-        /// <summary>
-        /// Updates a product
-        /// </summary>
-        /// <param name="p">The product entity</param>
+        //update an organization
         [System.ComponentModel.DataObjectMethodAttribute
         (System.ComponentModel.DataObjectMethodType.Update, true)]
         public void UpdateOrganization(Organization organization)
@@ -37,10 +31,8 @@ namespace MSSE680_WilliamsLogMgmtPortal.DAL
         }
 
 
-        /// <summary>
-        /// Delete a product
-        /// </summary>
-        /// <param name="p">The product entity to be deleted</param>
+        //delete an organization
+        //in the real solution we will likely only inactivate organizations
         [System.ComponentModel.DataObjectMethodAttribute
         (System.ComponentModel.DataObjectMethodType.Delete, true)]
         public void DeleteOrganization(Organization organization)
@@ -49,11 +41,7 @@ namespace MSSE680_WilliamsLogMgmtPortal.DAL
         }
 
 
-        /// <summary>
-        /// Gets an organization by ID, assuming the Organization Id is unique
-        /// </summary>
-        /// <param name="OrganizationID">The value for the primary key OrganizationId</param>
-        /// <returns>The product associated with the integer ID</returns>
+        //look up organization by OrganizationId
         [System.ComponentModel.DataObjectMethodAttribute
         (System.ComponentModel.DataObjectMethodType.Select, true)]
         public Organization GetOrganizationById(int OrganizationId)
