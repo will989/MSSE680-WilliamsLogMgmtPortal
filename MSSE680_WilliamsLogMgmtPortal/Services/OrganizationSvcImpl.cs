@@ -9,7 +9,7 @@ namespace MSSE680_WilliamsLogMgmtPortal.Services
 {
     public class OrganizationSvcImpl : IOrganizationService
     {
-        OrganizationRepository organizationRepository = new OrganizationRepository()
+        OrganizationRepository organizationRepository = new OrganizationRepository();
         public void AddOrganization(DAL.Organization organization)
         {
             organizationRepository.AddOrganization(organization);
@@ -33,3 +33,5 @@ namespace MSSE680_WilliamsLogMgmtPortal.Services
             throw new NotImplementedException();
         }
     }
+
+}

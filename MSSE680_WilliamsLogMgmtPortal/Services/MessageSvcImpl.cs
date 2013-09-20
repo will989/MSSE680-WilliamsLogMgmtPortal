@@ -29,7 +29,7 @@ namespace MSSE680_WilliamsLogMgmtPortal.Services
 
         public void DeleteMessage(DAL.Message message)
         {
-            messageRepository.DeleteMessage
+            messageRepository.DeleteMessage(message);
             throw new NotImplementedException();
         }
     }

@@ -7,9 +7,9 @@ using MSSE680_WilliamsLogMgmtPortal.DAL;
 
 namespace MSSE680_WilliamsLogMgmtPortal.Services
 {
-   public class UserSvcImpl : IUserService
+    public class UserSvcImpl : IUserService
     {
-        UserRepository userRepository = new UserRepository()
+        UserRepository userRepository = new UserRepository();
         public void AddUser(DAL.User user)
         {
             userRepository.AddUser(user);
@@ -33,3 +33,5 @@ namespace MSSE680_WilliamsLogMgmtPortal.Services
             throw new NotImplementedException();
         }
     }
+
+}
