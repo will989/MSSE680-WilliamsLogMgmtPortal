@@ -8,8 +8,10 @@ namespace MSSE680_WilliamsLogMgmtPortal.DALUnitTest
     public class MessageTests
     {
 
+        //Workflow test adds a message, retrieves a message
+        //and deletes the message from a database
         [TestMethod()]
-        public void addMessageFindMessageDeleteMessageDatabaseTest()
+        public void AddMessageFindMessageDeleteMessageDatabaseTest()
         {
             //get database connection
             andy680Entities db = new andy680Entities();
@@ -39,8 +41,9 @@ namespace MSSE680_WilliamsLogMgmtPortal.DALUnitTest
             db.SaveChanges();
         }
 
+        //validates that a message has the correct attributes
         [TestMethod()]
-        public void validateGoodMessageTest()
+        public void ValidateGoodMessageTest()
         {
             Message message = new Message();
             message.MessageId = 1;
@@ -55,8 +58,9 @@ namespace MSSE680_WilliamsLogMgmtPortal.DALUnitTest
 
         }
 
+        //verifies that an incomplete message fails validation
         [TestMethod()]
-        public void validateBadMessageTest()
+        public void ValidateBadMessageTest()
         {
             Message message = new Message();
             message.MessageId = -1;
@@ -73,7 +77,7 @@ namespace MSSE680_WilliamsLogMgmtPortal.DALUnitTest
 
         //verify that messages are equal
         [TestMethod()]
-        public void messageEqualsTest()
+        public void MessageEqualsTest()
         {
             DateTime current = System.DateTime.Now;
 
@@ -100,7 +104,7 @@ namespace MSSE680_WilliamsLogMgmtPortal.DALUnitTest
 
         //verify that messages are different
         [TestMethod()]
-        public void messageNotEqualsTest()
+        public void MessageNotEqualsTest()
         {
             DateTime current = System.DateTime.Now;
 

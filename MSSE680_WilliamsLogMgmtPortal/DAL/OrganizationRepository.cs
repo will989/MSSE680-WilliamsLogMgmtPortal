@@ -13,6 +13,15 @@ namespace MSSE680_WilliamsLogMgmtPortal.DAL
         /// </summary>
         readonly IDataRepository<Organization> objOrganizationRepository = new DataRepository<Organization>();
 
+        //Add organization
+        [System.ComponentModel.DataObjectMethodAttribute
+        (System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public void AddOrganization(Organization organization)
+        {
+            objOrganizationRepository.Insert(organization);
+        }
+
+
         //list organizations
         [System.ComponentModel.DataObjectMethodAttribute
         (System.ComponentModel.DataObjectMethodType.Select, true)]

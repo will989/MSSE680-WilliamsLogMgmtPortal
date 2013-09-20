@@ -11,6 +11,14 @@ namespace MSSE680_WilliamsLogMgmtPortal.DAL
         //generic User repository
         readonly IDataRepository<User> objUserRepository = new DataRepository<User>();
 
+        //Add user
+        [System.ComponentModel.DataObjectMethodAttribute
+        (System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public void AddUser(User user)
+        {
+            objUserRepository.Insert(user);
+        }
+
         //List all users
         [System.ComponentModel.DataObjectMethodAttribute
         (System.ComponentModel.DataObjectMethodType.Select, true)]

@@ -12,6 +12,7 @@ namespace MSSE680_WilliamsLogMgmtPortal.DALUnitTest
     public class RepositoryTests
     {
 
+        //inserts an organization into the database using the repository
         [TestMethod()]
         public void InsertOrganizationUsingRepository()
         {
@@ -31,6 +32,7 @@ namespace MSSE680_WilliamsLogMgmtPortal.DALUnitTest
 
         }
 
+        //retrieves an organization from the database using the repository
         [TestMethod()]
         public void RetrieveOrganizationsUsingRepository()
         {
@@ -41,6 +43,7 @@ namespace MSSE680_WilliamsLogMgmtPortal.DALUnitTest
             Assert.IsTrue(myList.Count > 0);
         }
 
+        //deletes an organization from the database using the repository
         [TestMethod()]
         public void DeleteOrganizationUsingRepositoryTest()
         {
@@ -61,6 +64,7 @@ namespace MSSE680_WilliamsLogMgmtPortal.DALUnitTest
             organizationRepository.Delete(organization);
         }
 
+        //insert a user into the database using the repository
         [TestMethod()]
         public void InsertUserUsingRepository()
         {
@@ -82,6 +86,7 @@ namespace MSSE680_WilliamsLogMgmtPortal.DALUnitTest
 
         }
 
+        //retrieves a user from the database using the repository
         [TestMethod()]
         public void RetrieveUsersUsingRepository()
         {
@@ -92,6 +97,7 @@ namespace MSSE680_WilliamsLogMgmtPortal.DALUnitTest
             Assert.IsTrue(myList.Count > 0);
         }
 
+        //deletes an organization from the database using the repository
         [TestMethod()]
         public void DeleteUserUsingRepositoryTest()
         {
@@ -113,6 +119,7 @@ namespace MSSE680_WilliamsLogMgmtPortal.DALUnitTest
 
         }
 
+        //insert a message into the database using the repository
         [TestMethod()]
         public void AddMessageUsingRepository()
         {
@@ -133,6 +140,7 @@ namespace MSSE680_WilliamsLogMgmtPortal.DALUnitTest
             messageRepository.Insert(message1);
         }
 
+        //rerieve a message from the database using the repository
         [TestMethod()]
         public void RetrieveMessagesUsingRepository()
         {
@@ -143,6 +151,7 @@ namespace MSSE680_WilliamsLogMgmtPortal.DALUnitTest
             Assert.IsTrue(myList.Count > 0);
         }
 
+        //delete a user from the database using the repository
         [TestMethod()]
         public void DeleteMessageUsingRepositoryTest()
         {
@@ -158,10 +167,10 @@ namespace MSSE680_WilliamsLogMgmtPortal.DALUnitTest
             message.OrgMessage = "This is a test message";
             message.Timestamp = current;
 
-            //add user to database
+            //add message to database
             messageRepository.Insert(message);
 
-            //now delete the user
+            //now delete the message
             messageRepository.Delete(message);
 
         }

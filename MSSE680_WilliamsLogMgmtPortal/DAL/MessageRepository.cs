@@ -11,6 +11,14 @@ namespace MSSE680_WilliamsLogMgmtPortal.DAL
         //generic Message repository
         readonly IDataRepository<Message> objMessageRepository = new DataRepository<Message>();
 
+        //Add message
+        [System.ComponentModel.DataObjectMethodAttribute
+        (System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public void AddMessage(Message message)
+        {
+            objMessageRepository.Insert(message);
+        }
+
         //List all messages
         [System.ComponentModel.DataObjectMethodAttribute
         (System.ComponentModel.DataObjectMethodType.Select, true)]
@@ -34,7 +42,7 @@ namespace MSSE680_WilliamsLogMgmtPortal.DAL
         //we won't really delete messages
         [System.ComponentModel.DataObjectMethodAttribute
         (System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public void DeleteUser(Message message)
+        public void DeleteMessage(Message message)
         {
             objMessageRepository.Delete(message);
         }

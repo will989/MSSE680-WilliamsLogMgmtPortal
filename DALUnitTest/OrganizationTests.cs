@@ -12,6 +12,8 @@ namespace MSSE680_WilliamsLogMgmtPortal.DALUnitTest
     public class OrganizationTests
     {
 
+        //Workflow test adds an organization, retrieves an organization
+        //and deletes the organization from a database
         [TestMethod()]
         public void addOrganizationFindOrganizationDeleteOrganizationDatabaseTest()
         {
@@ -43,6 +45,7 @@ namespace MSSE680_WilliamsLogMgmtPortal.DALUnitTest
             db.SaveChanges();
         }
 
+        //validates that an organization has the correct attributes
         [TestMethod()]
         public void validateGoodOrganizationTest()
         {
@@ -59,6 +62,7 @@ namespace MSSE680_WilliamsLogMgmtPortal.DALUnitTest
 
         }
 
+        //verifies that an incomplete organization fails validation
         [TestMethod()]
         public void validateBadOrganizationTest()
         {

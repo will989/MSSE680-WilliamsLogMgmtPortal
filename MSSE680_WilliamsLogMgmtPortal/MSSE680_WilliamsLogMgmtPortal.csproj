@@ -35,7 +35,9 @@
     <StartupObject>MSSE680_WilliamsLogMgmtPortal.DAL.Portal</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <EntityDeploy Include="DAL\andy680.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>andy680.Designer.cs</LastGenOutput>
@@ -91,6 +93,12 @@
     </Compile>
     <Compile Include="DAL\UserMethods.cs" />
     <Compile Include="DAL\Repository.cs" />
+    <Compile Include="Services\IOrganizationService.cs" />
+    <Compile Include="Services\IMessageService.cs" />
+    <Compile Include="Services\IUserService.cs" />
+    <Compile Include="Services\MessageSvcImpl.cs" />
+    <Compile Include="Services\OrganizationSvcImpl.cs" />
+    <Compile Include="Services\UserSvcImpl.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Accessibility" />
@@ -135,7 +143,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="SQL\createdatabase.sql" />
+    <Content Include="SqlScripts\createdatabase.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
