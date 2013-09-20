@@ -7,6 +7,7 @@ using MSSE680_WilliamsLogMgmtPortal.DAL;
 
 namespace MSSE680_WilliamsLogMgmtPortal.Services
 {
+    //interface for User Service
     public interface IUserService
     {
         void AddUser(User user);
