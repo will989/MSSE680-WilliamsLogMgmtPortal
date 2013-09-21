@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MSSE680_WilliamsLogMgmtPortal.DAL;
 using System.Diagnostics;
 
-namespace MSSE680_WilliamsLogMgmtPortal.DALUnitTest
+namespace DALUnitTest
 {
     [TestClass]
     public class UserTests

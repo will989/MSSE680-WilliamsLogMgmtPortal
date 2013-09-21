@@ -53,6 +53,12 @@
     <Compile Include="RepositoryFactoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MSSE680_WilliamsLogMgmtPortal\MSSE680_WilliamsLogMgmtPortal.csproj">
+      <Project>{4db5698a-8084-4886-831d-6be363459f81}</Project>
+      <Name>MSSE680_WilliamsLogMgmtPortal</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

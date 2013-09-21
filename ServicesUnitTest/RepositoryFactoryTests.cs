@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+//needed to add MSSE680_WilliamsLogMgmtPortal as a Reference
+//under ServicesUnitTest
 using MSSE680_WilliamsLogMgmtPortal.DAL;
+using MSSE680_WilliamsLogMgmtPortal.Services;
 
-namespace MSSE680_WilliamsLogMgmtPortal.ServicesUnitTest
+namespace ServicesUnitTest
 {
     [TestClass]
     public class RepositoryFactoryTests
