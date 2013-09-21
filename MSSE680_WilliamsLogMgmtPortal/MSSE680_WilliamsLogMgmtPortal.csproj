@@ -73,8 +73,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>andy680.edmx</DependentUpon>
     </Compile>
-    <Compile Include="DAL\MessageRepository.cs" />
-    <Compile Include="DAL\UserRepository.cs" />
     <Compile Include="DAL\Message.cs">
       <DependentUpon>andy680.tt</DependentUpon>
     </Compile>
@@ -83,7 +81,6 @@
       <DependentUpon>andy680.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\OrganizationMethods.cs" />
-    <Compile Include="DAL\OrganizationRepository.cs" />
     <Compile Include="DAL\Portal.cs" />
     <Compile Include="DAL\sysdiagram.cs">
       <DependentUpon>andy680.tt</DependentUpon>

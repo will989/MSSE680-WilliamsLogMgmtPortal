@@ -9,29 +9,32 @@ namespace MSSE680_WilliamsLogMgmtPortal.Services
 {
     public class UserSvcImpl : IUserService
     {
-        UserRepository userRepository = new UserRepository();
         public void AddUser(DAL.User user)
         {
-            userRepository.AddUser(user);
-            throw new NotImplementedException();
+            var userRepository = RepositoryFactory.Create("User");
+            userRepository.Insert(user);
         }
 
         public DAL.User GetUser(int id)
         {
-            userRepository.GetUserById(id);
-            throw new NotImplementedException();
+            User user = new User();
+            var userRepository = RepositoryFactory.Create("User");
+            userRepository.GetBySpecificKey("UserId",id);
+            return user;
         }
 
         public void UpdateUser(DAL.User user)
         {
-            userRepository.UpdateUser(user);
+            var userRepository = RepositoryFactory.Create("User");
+            userRepository.Update(user);
         }
 
         public void DeleteUser(DAL.User user)
         {
-            userRepository.DeleteUser(user);
-            throw new NotImplementedException();
+            var userRepository = RepositoryFactory.Create("User");
+            userRepository.Delete(user);
         }
+        
     }
 
 }

@@ -9,28 +9,32 @@ namespace MSSE680_WilliamsLogMgmtPortal.Services
 {
     public class MessageSvcImpl : IMessageService
     {
-        MessageRepository messageRepository = new MessageRepository();
-        public void AddMessage(DAL.Message message)
+        
+        public void AddMessage(Message message)
         {
-            messageRepository.AddMessage(message);
-            throw new NotImplementedException();
+            var messageRepository = RepositoryFactory.Create("Message");
+            messageRepository.Insert(message);
         }
 
         public DAL.Message GetMessage(int id)
         {
-            messageRepository.GetMessageById(id);
-            throw new NotImplementedException();
+            Message message = new Message();
+            var messageRepository = RepositoryFactory.Create("Message");
+            messageRepository.GetBySpecificKey("MessageId",id);
+            return message;
         }
 
-        public void UpdateMessage(DAL.Message message)
+        public void UpdateMessage(Message message)
         {
-            messageRepository.UpdateMessage(message);
+            var messageRepository = RepositoryFactory.Create("Message");
+            messageRepository.Update(message);
         }
 
-        public void DeleteMessage(DAL.Message message)
+        public void DeleteMessage(Message message)
         {
-            messageRepository.DeleteMessage(message);
-            throw new NotImplementedException();
+            var messageRepository = RepositoryFactory.Create("Message");
+            messageRepository.Delete(message);
         }
+         
     }
 }

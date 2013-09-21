@@ -31,9 +31,37 @@ namespace ServicesUnitTest
             //use repository factory to create a repository
             //of the correct type
             var organizationRepository = RepositoryFactory.Create("Organization");
+            if (organizationRepository == null) throw new ArgumentNullException("organizationRepository");
 
             //add org to database
             organizationRepository.Insert(organization);
+
+        }
+
+        [TestMethod()]
+        public void InsertMessageUsingRepositoryFactory()
+        {
+
+            DateTime current = System.DateTime.Now;
+
+            Message message1 = new Message();
+            message1.MessageId = 1;
+            message1.CorrelationIdentifier = 1010101;
+            message1.SendingOrgId = 1;
+            message1.ReceivingOrgId = 1;
+            message1.Severity = 3;
+            message1.OrgMessage = "This is a test message";
+            message1.Timestamp = current;
+
+
+            //use repository factory to create a repository
+            //of the correct type
+           // var messageRepository = new DataRepository<Message>();
+            var messageRepository =  RepositoryFactory.Create("Message");
+            if (messageRepository == null) throw new ArgumentNullException("messageRepository");
+
+            //add message to database
+            messageRepository.Insert(message1);
 
         }
     }

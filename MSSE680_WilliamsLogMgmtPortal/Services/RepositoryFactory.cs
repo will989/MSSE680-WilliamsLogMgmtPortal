@@ -13,21 +13,31 @@ namespace MSSE680_WilliamsLogMgmtPortal.Services
         //a repository type as a parameter
         public static IDataRepository Create(string sRepositoryType)
         {
-            IDataRepository objRepo;
-            switch (sRepositoryType)
+            IDataRepository objRepo=null;
+            if (sRepositoryType != null)
             {
-                case "Organization":
-                    objRepo = new DataRepository<Organization>();
-                    break;
-                case "Message":
-                    objRepo = new DataRepository<Message>();
-                    break;
-                case "User":
-                    objRepo = new DataRepository<User>();
-                    break;
-                default:
-                    objRepo = null;
-                    throw new System.ArgumentException("Unimplemented Repository type the factory " + sRepositoryType);
+                System.Diagnostics.Debug.WriteLine("string sRepositoryType = " +sRepositoryType);
+
+                switch (sRepositoryType)
+                {
+                    case "Organization":
+                        objRepo = new DataRepository<Organization>();
+                        System.Diagnostics.Debug.WriteLine("Created new repository {0}", objRepo);
+                        break;
+                    case "Message":
+                        System.Diagnostics.Debug.WriteLine("In Message case statement");
+                        objRepo = new DataRepository<Message>();
+                        System.Diagnostics.Debug.WriteLine("Created new repository {0}", objRepo);
+                        break;
+                    case "User":
+                        objRepo = new DataRepository<User>();
+                        break;
+                    default:
+                        objRepo = null;
+                        throw new System.ArgumentException("Unimplemented Repository type the factory " + sRepositoryType);
+                }
+                System.Diagnostics.Debug.WriteLine("Outside case statement, Created new repository {0}", objRepo);
+                return objRepo;
             }
             return objRepo;
         }
