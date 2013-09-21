@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSSE680_WilliamsLogMgmtPort
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DALUnitTest", "DALUnitTest\DALUnitTest.csproj", "{605B4151-60FC-49AB-BB16-61963117D584}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServicesUnitTest", "ServicesUnitTest\ServicesUnitTest.csproj", "{C41D2E2C-93BB-4393-97BB-AEBE7A527235}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{605B4151-60FC-49AB-BB16-61963117D584}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{605B4151-60FC-49AB-BB16-61963117D584}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{605B4151-60FC-49AB-BB16-61963117D584}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C41D2E2C-93BB-4393-97BB-AEBE7A527235}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C41D2E2C-93BB-4393-97BB-AEBE7A527235}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C41D2E2C-93BB-4393-97BB-AEBE7A527235}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C41D2E2C-93BB-4393-97BB-AEBE7A527235}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

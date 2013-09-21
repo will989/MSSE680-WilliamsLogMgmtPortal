@@ -98,6 +98,7 @@
     <Compile Include="Services\IUserService.cs" />
     <Compile Include="Services\MessageSvcImpl.cs" />
     <Compile Include="Services\OrganizationSvcImpl.cs" />
+    <Compile Include="Services\RepositoryFactory.cs" />
     <Compile Include="Services\UserSvcImpl.cs" />
   </ItemGroup>
   <ItemGroup>
