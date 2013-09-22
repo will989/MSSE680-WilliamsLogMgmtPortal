@@ -11,12 +11,14 @@ namespace MSSE680_WilliamsLogMgmtPortal.Services
     {
         public void AddUser(DAL.User user)
         {
+            //use the factory to create a repository
             var userRepository = RepositoryFactory.Create("User");
             userRepository.Insert(user);
         }
 
         public DAL.User GetUser(int id)
         {
+            //use the factory to create a repository
             User user = new User();
             var userRepository = RepositoryFactory.Create("User");
             userRepository.GetBySpecificKey("UserId",id);
@@ -25,12 +27,14 @@ namespace MSSE680_WilliamsLogMgmtPortal.Services
 
         public void UpdateUser(DAL.User user)
         {
+            //use the factory to create a repository
             var userRepository = RepositoryFactory.Create("User");
             userRepository.Update(user);
         }
 
         public void DeleteUser(DAL.User user)
         {
+            //use the factory to create a repository
             var userRepository = RepositoryFactory.Create("User");
             userRepository.Delete(user);
         }

@@ -21,9 +21,9 @@ namespace ServicesUnitTest
 
             Organization organization = new Organization();
             //organization.OrganizationId = 1;  - this is auto-assigned in db
-            organization.Name = "Repository Organization";
-            organization.Street = "Testing St";
-            organization.City = "Anytown";
+            organization.Name = "Repository Factory Organization";
+            organization.Street = "Factory Blvd";
+            organization.City = "Repository";
             organization.State = "CO";
             organization.Zip = "80601";
             organization.StartDate = System.DateTime.Now;
@@ -35,6 +35,9 @@ namespace ServicesUnitTest
 
             //add org to database
             organizationRepository.Insert(organization);
+
+            //get "Cannot convert instance argument IQueryable to IEnumerable error
+            //List<Organization> orgList = organizationRepository.GetBySpecificKey("Name", "Repository Factory Organization").ToList<Organization>();
 
         }
 

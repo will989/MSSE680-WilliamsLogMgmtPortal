@@ -13,6 +13,7 @@ namespace MSSE680_WilliamsLogMgmtPortal.Services
         Message GetMessage(int id);
         void UpdateMessage(Message message);
         void DeleteMessage(Message message);
-
+        List<Message> GetOrganizationMessages(int organizationId);
+   
     }
 }
