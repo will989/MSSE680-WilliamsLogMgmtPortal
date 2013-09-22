@@ -50,8 +50,11 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="MessageServiceTests.cs" />
+    <Compile Include="OrganizationServiceTests.cs" />
     <Compile Include="RepositoryFactoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserServiceTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MSSE680_WilliamsLogMgmtPortal\MSSE680_WilliamsLogMgmtPortal.csproj">

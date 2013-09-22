@@ -9,8 +9,9 @@ namespace MSSE680_WilliamsLogMgmtPortal.Services
 {
     public class RepositoryFactory
     {
+
         //the create method takes a string that contains 
-        //a repository type as a parameter
+        //a repository type as a parameter and returns a repository of that type
         public static IDataRepository Create(string sRepositoryType)
         {
             IDataRepository objRepo=null;
