@@ -21,10 +21,34 @@ namespace MSSE680_WilliamsLogMgmtPortal.Services
         public DAL.Organization GetOrganization(int id)
         {
             //*** Need to figure out how to return the organization
-            var organizationRepository = RepositoryFactory.Create("Organization");
-            Organization organization = new Organization();
-            organizationRepository.GetBySpecificKey("OrganizationId", id);
-            return organization;
+            try
+            {
+                var organizationRepository = RepositoryFactory.Create("Organization");
+
+                Organization organization = new Organization();
+                organization = null;
+
+                //need to return an organization somehow
+                organizationRepository.GetBySpecificKey("OrganizationId", id);
+
+                if (organization == null)
+                {
+                    throw new OrganizationNotFoundException("Organization not found!");
+                }
+                else
+                {
+                    return organization;  
+                }
+                
+            }
+            catch (OrganizationNotFoundException onfe)
+            {
+                System.Console.WriteLine("Caught OrganizationNotFoundException" + onfe);
+            }
+            catch (Exception e)
+            {
+                System.Console.WriteLine("Caught Exception" + e);
+            }
         }
 
         public void UpdateOrganization(DAL.Organization organization)

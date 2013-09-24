@@ -90,13 +90,14 @@
     </Compile>
     <Compile Include="DAL\UserMethods.cs" />
     <Compile Include="DAL\Repository.cs" />
+    <Compile Include="Services\MessageNotFoundException.cs" />
     <Compile Include="Services\IOrganizationService.cs" />
     <Compile Include="Services\IMessageService.cs" />
     <Compile Include="Services\IUserService.cs" />
     <Compile Include="Services\MessageSvcImpl.cs" />
     <Compile Include="Services\OrganizationSvcImpl.cs" />
     <Compile Include="Services\RepositoryFactory.cs" />
-    <Compile Include="Services\ServiceNotFoundException.cs" />
+    <Compile Include="Services\OrganizationNotFoundException.cs" />
     <Compile Include="Services\UserSvcImpl.cs" />
   </ItemGroup>
   <ItemGroup>

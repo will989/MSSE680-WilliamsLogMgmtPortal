@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace MSSE680_WilliamsLogMgmtPortal.Services
 {
-    public class ServiceNotFoundException : Exception
+    public class MessageNotFoundException : Exception
     {
-        public ServiceNotFoundException(String s) : base(s)
+        public MessageNotFoundException(String s) : base(s)
         {
-
+            
         }
     }
 }

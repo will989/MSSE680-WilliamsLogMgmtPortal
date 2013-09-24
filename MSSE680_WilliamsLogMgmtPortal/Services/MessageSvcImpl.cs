@@ -18,11 +18,33 @@ namespace MSSE680_WilliamsLogMgmtPortal.Services
 
         public DAL.Message GetMessage(int id)
         {
-            //use the factory to create a repository
-            Message message = new Message();
-            var messageRepository = RepositoryFactory.Create("Message");
-            messageRepository.GetBySpecificKey("MessageId", id);
-            return message;
+            try
+            {
+                //use the factory to create a repository
+                Message message = new Message();
+                message = null;
+                var messageRepository = RepositoryFactory.Create("Message");
+                messageRepository.GetBySpecificKey("MessageId", id);
+
+                if (message == null)
+                {
+                    throw new MessageNotFoundException("Message not found!");
+                }
+                else
+                {
+                    return message;
+                }
+            }
+            
+            catch (OrganizationNotFoundException onfe)
+            {
+                System.Console.WriteLine("Caught OrganizationNotFoundException" + onfe);
+            }
+            catch (Exception e)
+            {
+                System.Console.WriteLine("Caught Exception" + e);
+            }
+            
         }
 
         public void UpdateMessage(Message message)
