@@ -13,23 +13,22 @@ namespace MSSE680_WilliamsLogMgmtPortal.Services
         public void AddOrganization(DAL.Organization organization)
         {
             var organizationRepository = RepositoryFactory.Create("Organization");
-            //organizationRepository.AddOrganization(organization);
+
              //add org to database
             organizationRepository.Insert(organization);
         }
 
         public DAL.Organization GetOrganization(int id)
         {
-            //*** Need to figure out how to return the organization
             try
             {
-                var organizationRepository = RepositoryFactory.Create("Organization");
+                var organizationRepository = new RepositoryFactory.Create("Organization");
 
                 Organization organization = new Organization();
                 organization = null;
 
-                //need to return an organization somehow
-                organizationRepository.GetBySpecificKey("OrganizationId", id);
+                //return an organization
+                organization = organizationRepository.GetBySpecificKey("OrganizationId", id);
 
                 if (organization == null)
                 {
@@ -54,7 +53,7 @@ namespace MSSE680_WilliamsLogMgmtPortal.Services
         public void UpdateOrganization(DAL.Organization organization)
         {
             //create repository of the correct type
-            var organizationRepository = RepositoryFactory.Create("Organization");
+            var organizationRepository = new RepositoryFactory.Create("Organization");
             
             //update the organization
             organizationRepository.Update(organization);
@@ -63,7 +62,7 @@ namespace MSSE680_WilliamsLogMgmtPortal.Services
         public void DeleteOrganization(DAL.Organization organization)
         {
             //create repository of the correct type
-            var organizationRepository = RepositoryFactory.Create("Organization");
+            var organizationRepository = new RepositoryFactory.Create("Organization");
 
             //delete the organization
             organizationRepository.Delete(organization);

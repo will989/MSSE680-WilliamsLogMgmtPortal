@@ -18,7 +18,7 @@ namespace ServicesUnitTest
         [TestMethod()]
         public void InsertUserUsingUserSvcImpl()
         {
-
+            var factory = new Factory();
             DateTime current = System.DateTime.Now;
             User user = new User();
             user.UserName = "userSvcImpl";
@@ -29,9 +29,14 @@ namespace ServicesUnitTest
             user.AdminFlag = false;
             user.ActiveDate = current;
 
+
+            //add user using factory to create necessary service
+            IUserService userSvc = (IUserService)factory.GetService(typeof(IUserService).Name);
+            userSvc.AddUser(user);
+
             //add user to database using UserSvcImpl
-            UserSvcImpl userSvcImpl = new UserSvcImpl();
-            userSvcImpl.AddUser(user);
+            //UserSvcImpl userSvcImpl = new UserSvcImpl();
+            //userSvcImpl.AddUser(user);
 
         }
     }

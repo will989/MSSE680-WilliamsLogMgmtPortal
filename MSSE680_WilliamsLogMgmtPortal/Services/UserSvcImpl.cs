@@ -21,7 +21,7 @@ namespace MSSE680_WilliamsLogMgmtPortal.Services
             //use the factory to create a repository
             User user = new User();
             var userRepository = RepositoryFactory.Create("User");
-            userRepository.GetBySpecificKey("UserId",id);
+            List<User> myUsers = userRepository.GetBySpecificKey("UserId",id);
             return user;
         }
 

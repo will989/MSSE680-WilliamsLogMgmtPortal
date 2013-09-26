@@ -7,7 +7,7 @@ using MSSE680_WilliamsLogMgmtPortal.DAL;
 
 namespace MSSE680_WilliamsLogMgmtPortal.Services
 {
-    public interface IMessageService
+    public interface IMessageService : IService
     {
         void AddMessage(Message message);
         Message GetMessage(int id);

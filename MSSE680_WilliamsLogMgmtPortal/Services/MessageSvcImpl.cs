@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Services.Description;
 using MSSE680_WilliamsLogMgmtPortal.DAL;
+using Message = MSSE680_WilliamsLogMgmtPortal.DAL.Message;
 
 namespace MSSE680_WilliamsLogMgmtPortal.Services
 {
@@ -11,7 +13,10 @@ namespace MSSE680_WilliamsLogMgmtPortal.Services
     {
         public void AddMessage(Message message)
         {
+            Factory factory = new Factory();
             //use the factory to create a repository
+            var myRepo = (Message) factory.GetRepository(typeof (IRepository).Name);
+            //myRepo.Insert(message);
             var messageRepository = RepositoryFactory.Create("Message");
             messageRepository.Insert(message);
         }
@@ -23,8 +28,17 @@ namespace MSSE680_WilliamsLogMgmtPortal.Services
                 //use the factory to create a repository
                 Message message = new Message();
                 message = null;
-                var messageRepository = RepositoryFactory.Create("Message");
-                messageRepository.GetBySpecificKey("MessageId", id);
+                
+                //need to use factory
+                //IMessageRepository messageRepository = (IMessageRepository)factory.GetRepository(typeof(IMessageRepository).Name);
+                var msgRepo = new DataRepository<Message>();
+                List<Message> myMsgs = msgRepo.GetBySpecificKey("MessageId", id).ToList<Message>();
+                
+                //Repository factory method:
+                var messageRepository = Services.RepositoryFactory.Create("Message");
+                //List<Message> myMessages = messageRepository.GetBySpecificKey("MessageId", id).ToList<Message>();
+
+                message = myMsgs[0];
 
                 if (message == null)
                 {
@@ -63,11 +77,10 @@ namespace MSSE680_WilliamsLogMgmtPortal.Services
 
         public List<Message> GetOrganizationMessages(int organizationId)
         {
-            //use the factory to create a repository
+            //use the factory to create a new repository
             var messageRepository = RepositoryFactory.Create("Message");
 
-            //*** need to figure this out
-           // List<Message> orgMessages = messageRepository.GetBySpecificKey("OrganizationId", organizationId);
+           List<Message> orgMessages = messageRepository.GetBySpecificKey("OrganizationId", organizationId);
             return new List<Message>();
 
         }

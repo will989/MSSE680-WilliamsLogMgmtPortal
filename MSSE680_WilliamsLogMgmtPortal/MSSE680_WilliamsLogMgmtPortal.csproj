@@ -90,6 +90,9 @@
     </Compile>
     <Compile Include="DAL\UserMethods.cs" />
     <Compile Include="DAL\Repository.cs" />
+    <Compile Include="Services\Factory.cs" />
+    <Compile Include="Services\IRepository.cs" />
+    <Compile Include="Services\IService.cs" />
     <Compile Include="Services\MessageNotFoundException.cs" />
     <Compile Include="Services\IOrganizationService.cs" />
     <Compile Include="Services\IMessageService.cs" />
@@ -144,6 +147,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="SqlScripts\createdatabase.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Business\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
