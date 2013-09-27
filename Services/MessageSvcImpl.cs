@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.Services.Description;
 using MSSE680_WilliamsLogMgmtPortal.DAL;
-using Message = MSSE680_WilliamsLogMgmtPortal.DAL.Message;
 
-namespace MSSE680_WilliamsLogMgmtPortal.Services
+namespace Services
 {
     public class MessageSvcImpl : IMessageService
     {
@@ -21,13 +17,14 @@ namespace MSSE680_WilliamsLogMgmtPortal.Services
             messageRepository.Insert(message);
         }
 
-        public DAL.Message GetMessage(int id)
+        public Message GetMessage(int id)
         {
+            Message message = new Message();
+            message = null;
             try
             {
                 //use the factory to create a repository
-                Message message = new Message();
-                message = null;
+
                 
                 //need to use factory
                 //IMessageRepository messageRepository = (IMessageRepository)factory.GetRepository(typeof(IMessageRepository).Name);
@@ -44,10 +41,8 @@ namespace MSSE680_WilliamsLogMgmtPortal.Services
                 {
                     throw new MessageNotFoundException("Message not found!");
                 }
-                else
-                {
-                    return message;
-                }
+              
+                    
             }
             
             catch (OrganizationNotFoundException onfe)
@@ -58,7 +53,9 @@ namespace MSSE680_WilliamsLogMgmtPortal.Services
             {
                 System.Console.WriteLine("Caught Exception" + e);
             }
-            
+
+            return message;
+                
         }
 
         public void UpdateMessage(Message message)
@@ -79,9 +76,11 @@ namespace MSSE680_WilliamsLogMgmtPortal.Services
         {
             //use the factory to create a new repository
             var messageRepository = RepositoryFactory.Create("Message");
-
-           List<Message> orgMessages = messageRepository.GetBySpecificKey("OrganizationId", organizationId);
-            return new List<Message>();
+            var msgRepo = new DataRepository<Message>();
+            List<Message> myMsgs = msgRepo.GetBySpecificKey("MessageId", organizationId).ToList<Message>();
+            
+            //List<Message> orgMessages = messageRepository.GetBySpecificKey("OrganizationId", organizationId).ToList<Message>(); 
+            return myMsgs;
 
         }
  

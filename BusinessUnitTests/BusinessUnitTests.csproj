@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C41D2E2C-93BB-4393-97BB-AEBE7A527235}</ProjectGuid>
+    <ProjectGuid>{2D4C54C0-1E76-4A9A-B08C-86004FB39C15}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ServicesUnitTest</RootNamespace>
-    <AssemblyName>ServicesUnitTest</AssemblyName>
+    <RootNamespace>BusinessUnitTests</RootNamespace>
+    <AssemblyName>BusinessUnitTests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -50,24 +50,22 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="MessageServiceTests.cs" />
-    <Compile Include="OrganizationServiceTests.cs" />
-    <Compile Include="RepositoryFactoryTests.cs" />
+    <Compile Include="AuthenticateUserTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserServiceTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Business\Business.csproj">
+      <Project>{96238446-3568-4732-86ab-0f94ca117110}</Project>
+      <Name>Business</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MSSE680_WilliamsLogMgmtPortal\MSSE680_WilliamsLogMgmtPortal.csproj">
-      <Project>{4db5698a-8084-4886-831d-6be363459f81}</Project>
+      <Project>{4DB5698A-8084-4886-831D-6BE363459F81}</Project>
       <Name>MSSE680_WilliamsLogMgmtPortal</Name>
     </ProjectReference>
     <ProjectReference Include="..\Services\Services.csproj">
       <Project>{812356BC-EE48-4240-8323-75139823E65C}</Project>
       <Name>Services</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

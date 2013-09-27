@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MSSE680_WilliamsLogMgmtPortal.DAL;
 
-namespace MSSE680_WilliamsLogMgmtPortal.Services
+namespace Services
 {
     public class Factory
     {
@@ -17,15 +13,17 @@ namespace MSSE680_WilliamsLogMgmtPortal.Services
 
         public IRepository GetRepository(string repositoryname)
         {
-            Type type;
             Object obj = null;
+            /*
+            Type type;
+            
 
             try
             {
                 //Looks up the implementation name in app.config
                 //type = Type.GetType(GetRepositoryName(repositoryname));
                 //Dynamically instantiates the implementation class
-                obj = new DataRepository<respositoryname>();
+                //obj = new DataRepository<respositoryname>();
             }
             catch (Exception e)
             {
@@ -33,6 +31,7 @@ namespace MSSE680_WilliamsLogMgmtPortal.Services
                 throw e;
 
             }
+             */
             return (IRepository) obj;
         }
 

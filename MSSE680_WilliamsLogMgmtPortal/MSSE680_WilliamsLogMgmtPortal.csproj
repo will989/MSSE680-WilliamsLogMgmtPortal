@@ -90,18 +90,6 @@
     </Compile>
     <Compile Include="DAL\UserMethods.cs" />
     <Compile Include="DAL\Repository.cs" />
-    <Compile Include="Services\Factory.cs" />
-    <Compile Include="Services\IRepository.cs" />
-    <Compile Include="Services\IService.cs" />
-    <Compile Include="Services\MessageNotFoundException.cs" />
-    <Compile Include="Services\IOrganizationService.cs" />
-    <Compile Include="Services\IMessageService.cs" />
-    <Compile Include="Services\IUserService.cs" />
-    <Compile Include="Services\MessageSvcImpl.cs" />
-    <Compile Include="Services\OrganizationSvcImpl.cs" />
-    <Compile Include="Services\RepositoryFactory.cs" />
-    <Compile Include="Services\OrganizationNotFoundException.cs" />
-    <Compile Include="Services\UserSvcImpl.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Accessibility" />
@@ -148,9 +136,7 @@
   <ItemGroup>
     <Content Include="SqlScripts\createdatabase.sql" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Business\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

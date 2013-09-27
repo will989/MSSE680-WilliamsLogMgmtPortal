@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MSSE680_WilliamsLogMgmtPortal.DAL;
+﻿using MSSE680_WilliamsLogMgmtPortal.DAL;
 
-namespace MSSE680_WilliamsLogMgmtPortal.Services
+namespace Services
 {
     public class RepositoryFactory
     {
