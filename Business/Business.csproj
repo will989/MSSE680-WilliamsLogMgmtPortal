@@ -36,6 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="AuthenticateUser.cs" />
+    <Compile Include="MessageManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

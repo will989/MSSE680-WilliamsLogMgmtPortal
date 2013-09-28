@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,6 +41,27 @@ namespace ServicesUnitTest
            //add message to database using MessageSvcImpl
            MessageSvcImpl msgSvcImpl = new MessageSvcImpl();
            msgSvcImpl.AddMessage(message1);
+
+        }
+
+        
+        [TestMethod()]
+        public void GetMessagesTest()
+        {
+            Message message = new Message();
+
+
+            try
+            {
+                MessageSvcImpl msgSvcImpl = new MessageSvcImpl();
+                message = msgSvcImpl.GetMessage(1);
+            }
+            catch (MessageNotFoundException)
+            {
+                Debug.WriteLine("Message was not found");
+            }
+
+            Assert.IsTrue(message.SendingOrgId == 1);
 
         }
     }

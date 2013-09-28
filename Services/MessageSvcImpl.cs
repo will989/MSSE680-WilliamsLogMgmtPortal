@@ -28,10 +28,8 @@ namespace Services
             try
             {
                 //use the factory to create a repository
-
-                
-                //need to use factory
                 //IMessageRepository messageRepository = (IMessageRepository)factory.GetRepository(typeof(IMessageRepository).Name);
+
                 var msgRepo = new DataRepository<Message>();
                 List<Message> myMsgs = msgRepo.GetBySpecificKey("MessageId", id).ToList<Message>();
                 
