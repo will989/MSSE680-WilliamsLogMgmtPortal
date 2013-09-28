@@ -18,15 +18,17 @@ namespace Services
                 {
                     case "Organization":
                         objRepo = new DataRepository<Organization>();
-                        System.Diagnostics.Debug.WriteLine("Created new repository {0}", objRepo);
+                        System.Diagnostics.Debug.WriteLine("Created new organization repository {0}", objRepo);
                         break;
                     case "Message":
                         System.Diagnostics.Debug.WriteLine("In Message case statement");
                         objRepo = new DataRepository<Message>();
-                        System.Diagnostics.Debug.WriteLine("Created new repository {0}", objRepo);
+                        System.Diagnostics.Debug.WriteLine("Created new message repository {0}", objRepo);
                         break;
                     case "User":
+                        System.Diagnostics.Debug.WriteLine("In User case statement");
                         objRepo = new DataRepository<User>();
+                        System.Diagnostics.Debug.WriteLine("Created new user repository {0}", objRepo);
                         break;
                     default:
                         objRepo = null;

@@ -31,12 +31,12 @@ namespace ServicesUnitTest
 
 
             //add user using factory to create necessary service
-            IUserService userSvc = (IUserService)factory.GetService(typeof(IUserService).Name);
-            userSvc.AddUser(user);
+            //IUserService userSvc = (IUserService)factory.GetService(typeof(IUserService).Name);
+            //userSvc.AddUser(user);
 
             //add user to database using UserSvcImpl
-            //UserSvcImpl userSvcImpl = new UserSvcImpl();
-            //userSvcImpl.AddUser(user);
+            UserSvcImpl userSvcImpl = new UserSvcImpl();
+            userSvcImpl.AddUser(user);
 
         }
     }

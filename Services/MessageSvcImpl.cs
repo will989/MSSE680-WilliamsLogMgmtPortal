@@ -7,15 +7,19 @@ namespace Services
 {
     public class MessageSvcImpl : IMessageService
     {
+        
+        // Factory not working with repositories, use RepositoryFactory
         public void AddMessage(Message message)
         {
             Factory factory = new Factory();
             //use the factory to create a repository
-            var myRepo = (Message) factory.GetRepository(typeof (IRepository).Name);
+            //var myRepo = (Message) factory.GetRepository(typeof (IRepository).Name);
             //myRepo.Insert(message);
+
             var messageRepository = RepositoryFactory.Create("Message");
             messageRepository.Insert(message);
         }
+         
 
         public Message GetMessage(int id)
         {

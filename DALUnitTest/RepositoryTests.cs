@@ -136,7 +136,7 @@ namespace MSSE680_WilliamsLogMgmtPortal.DALUnitTest
             message1.OrgMessage = "This is a test message";
             message1.Timestamp = current;
 
-            //add user to database
+            //add message to database
             messageRepository.Insert(message1);
         }
 
@@ -151,7 +151,7 @@ namespace MSSE680_WilliamsLogMgmtPortal.DALUnitTest
             Assert.IsTrue(myList.Count > 0);
         }
 
-        //delete a user from the database using the repository
+        //delete a message from the database using the repository
         [TestMethod()]
         public void DeleteMessageUsingRepositoryTest()
         {

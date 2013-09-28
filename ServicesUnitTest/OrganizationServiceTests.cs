@@ -28,13 +28,13 @@ namespace ServicesUnitTest
             organization.StartDate = System.DateTime.Now;
 
             //add organization using factory to create necessary service
-            IOrganizationService organizationSvc = (IOrganizationService)factory.GetService(typeof(IOrganizationService).Name);
-            organizationSvc.AddOrganization(organization);
+            //IOrganizationService organizationSvc = (IOrganizationService)factory.GetService(typeof(IOrganizationService).Name);
+            //organizationSvc.AddOrganization(organization);
 
             //pre-factory implementation
             //add organization to database using OrganizationSvcImpl
-            //OrganizationSvcImpl orgSvcImpl = new OrganizationSvcImpl();
-            // orgSvcImpl.AddOrganization(organization);
+            OrganizationSvcImpl orgSvcImpl = new OrganizationSvcImpl();
+            orgSvcImpl.AddOrganization(organization);
 
         }
     }

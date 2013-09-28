@@ -30,7 +30,8 @@ namespace ServicesUnitTest
 
             //use repository factory to create a repository
             //of the correct type
-            var organizationRepository = RepositoryFactory.Create("Organization");
+            //var organizationRepository = RepositoryFactory.Create("Organization");
+            var organizationRepository = new DataRepository<Organization>();
             if (organizationRepository == null) throw new ArgumentNullException("organizationRepository");
 
             //add org to database
@@ -56,11 +57,11 @@ namespace ServicesUnitTest
             message1.OrgMessage = "This is a test message";
             message1.Timestamp = current;
 
-
             //use repository factory to create a repository
             //of the correct type
-           // var messageRepository = new DataRepository<Message>();
+            
             var messageRepository =  RepositoryFactory.Create("Message");
+            //var messageRepository = new DataRepository<Message>();
             if (messageRepository == null) throw new ArgumentNullException("messageRepository");
 
             //add message to database

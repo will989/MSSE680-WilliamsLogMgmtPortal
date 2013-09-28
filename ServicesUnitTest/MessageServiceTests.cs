@@ -20,7 +20,7 @@ namespace ServicesUnitTest
         public void InsertMessageUsingMessageSvcImpl()
         {
             var factory = new Factory();
-
+            
             DateTime current = System.DateTime.Now;
 
             Message message1 = new Message();
@@ -31,14 +31,15 @@ namespace ServicesUnitTest
             message1.Severity = 3;
             message1.OrgMessage = "This is a test message";
             message1.Timestamp = current;
-            
-            //add message using factory to create necessary service
-            IMessageService messageSvc = (IMessageService)factory.GetService(typeof(IMessageService).Name);
-            messageSvc.AddMessage(message1);
+           
+           //factory not working...
+           //add message using factory to create necessary service
+           //IMessageService messageSvc = (IMessageService)factory.GetService(typeof(IMessageService).Name);
+           // messageSvc.AddMessage(message1);
 
            //add message to database using MessageSvcImpl
-           // MessageSvcImpl msgSvcImpl = new MessageSvcImpl();
-           // msgSvcImpl.AddMessage(message1);
+           MessageSvcImpl msgSvcImpl = new MessageSvcImpl();
+           msgSvcImpl.AddMessage(message1);
 
         }
     }

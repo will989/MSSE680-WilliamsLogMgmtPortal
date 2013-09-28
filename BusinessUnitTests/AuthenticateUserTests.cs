@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MSSE680_WilliamsLogMgmtPortal.DAL;
 using Services;
@@ -21,5 +22,27 @@ namespace BusinessUnitTests
             Assert.IsTrue(authorized);
 
         }
+    
+        //this authentication should fail
+        [TestMethod()]
+        public void AuthenticateBadUserTest()
+        {
+            string username = "BadSeed";
+            string password = "testingBadUser";
+
+            bool authorized = false;
+            try
+            {
+                authorized = AuthenticateUser.AuthUser(username, password);
+            }
+            catch (UserNotFoundException)
+            {
+                Debug.WriteLine("User was not found");
+            }
+
+            Assert.IsFalse(authorized);
+
+        }
     }
+
 }
