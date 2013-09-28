@@ -3,7 +3,7 @@
 namespace Services
 {
     //interface for User Service
-    public interface IUserService
+    public interface IUserService : IService
     {
         void AddUser(User user);
         User GetUser(int id);

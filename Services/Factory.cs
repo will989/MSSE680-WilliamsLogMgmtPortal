@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Specialized;
 using System.Configuration;
+using System.Diagnostics;
+using System.Reflection;
 using MSSE680_WilliamsLogMgmtPortal.DAL;
 
 namespace Services
@@ -44,7 +46,7 @@ namespace Services
 
         }
 
-        public IService GetService(string servicename)
+        public IService GetService(String servicename)
         {
             Type type;
             Object obj = null;
@@ -62,15 +64,24 @@ namespace Services
                 throw e;
 
             }
-            return (IService) obj;
+            return (IService)obj;
         }
 
         private string GetImplName(string servicename)
         {
             NameValueCollection settings =
                 ConfigurationManager.AppSettings;
-            //Looks up the impl name in app.config
-            return settings.Get(servicename);
+            string s = ConfigurationManager.AppSettings.Get(servicename);
+            Debug.WriteLine("String s = " +s);
+
+            if (!String.IsNullOrEmpty(s))
+            {
+                //Looks up the impl name in app.config
+                return settings.Get(servicename);
+            }
+
+            //Default service
+            return "IUserService";
 
         }
 

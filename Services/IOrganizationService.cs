@@ -2,7 +2,7 @@
 
 namespace Services
 {
-    public interface IOrganizationService
+    public interface IOrganizationService : IService
     {
         void AddOrganization();
         void AddOrganization(Organization organization);
