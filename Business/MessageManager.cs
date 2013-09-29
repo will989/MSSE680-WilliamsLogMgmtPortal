@@ -65,5 +65,22 @@ namespace Business
 
             return orgMessages;
         }
+
+        public List<Message> GetCorrelatedMessages(int correlationId)
+        {
+            MessageSvcImpl messageSvcImpl = new MessageSvcImpl();
+            List<Message> correlatedMessages = new List<Message>();
+
+            try
+            {
+                correlatedMessages = messageSvcImpl.GetOrganizationMessages(correlationId);
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("Exception caught while getting list of messages" + e);
+            }
+
+            return correlatedMessages;
+        }
     }
 }

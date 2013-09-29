@@ -1,4 +1,5 @@
-﻿using MSSE680_WilliamsLogMgmtPortal.DAL;
+﻿using System.Collections.Generic;
+using MSSE680_WilliamsLogMgmtPortal.DAL;
 
 namespace Services
 {
@@ -10,6 +11,7 @@ namespace Services
         User GetUser(string userName);
         void UpdateUser(User user);
         void DeleteUser(User user);
+        List<User> GetOrganizationUsers(int orgId);
 
     }
 }

@@ -51,7 +51,10 @@
   </Choose>
   <ItemGroup>
     <Compile Include="AuthenticateUserTests.cs" />
+    <Compile Include="MessageManagerTests.cs" />
+    <Compile Include="OrganizationManagerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserManagerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Business\Business.csproj">

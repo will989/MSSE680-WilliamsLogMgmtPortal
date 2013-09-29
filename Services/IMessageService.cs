@@ -10,6 +10,7 @@ namespace Services
         void UpdateMessage(Message message);
         void DeleteMessage(Message message);
         List<Message> GetOrganizationMessages(int organizationId);
+        List<Message> GetCorrelatedMessages(int correlationId);
    
     }
 }
