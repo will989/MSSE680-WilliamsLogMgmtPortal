@@ -1,14 +1,23 @@
-﻿using MSSE680_WilliamsLogMgmtPortal.DAL;
+﻿using System;
+using MSSE680_WilliamsLogMgmtPortal.DAL;
 
 namespace Services
 {
     public class RepositoryFactory
     {
 
+        //example for dynamic data repository posted in the forum by Nick Olsen
+        public static DataRepository<T> CRUD<T>() where T : class
+        {
+            DataRepository<T> modifiedRepository = Activator.CreateInstance<DataRepository<T>>();
+            return modifiedRepository;
+        }
+
         //the create method takes a string that contains 
         //a repository type as a parameter and returns a repository of that type
         public static IDataRepository Create(string sRepositoryType)
         {
+
             IDataRepository objRepo=null;
             if (sRepositoryType != null)
             {
