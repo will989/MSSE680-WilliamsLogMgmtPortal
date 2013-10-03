@@ -115,6 +115,10 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
+USE [andy680]
+GO
+
+/****** Object:  Tables ******/
 CREATE TABLE [dbo].[Organizations](
 	[OrganizationId] [int] IDENTITY(1,1) NOT NULL,
 	[Name] [nvarchar](50) NOT NULL,
