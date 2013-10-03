@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using MSSE680_WilliamsLogMgmtPortal.DAL;
 
 namespace Presentation
 {
@@ -68,6 +69,14 @@ namespace Presentation
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+
+        public IQueryable<Organization> GetOrganizations()
+        {
+            var db = new MSSE680_WilliamsLogMgmtPortal.DAL.DataRepository<Organization>();
+            //get all organizations from table
+            IQueryable<Organization> query = db.GetAll();
+            return query;
         }
     }
 }

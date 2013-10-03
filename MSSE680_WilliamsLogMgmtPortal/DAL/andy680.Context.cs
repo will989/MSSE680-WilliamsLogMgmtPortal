@@ -7,6 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.Linq;
+
 namespace MSSE680_WilliamsLogMgmtPortal.DAL
 {
     using System;
@@ -27,6 +29,7 @@ namespace MSSE680_WilliamsLogMgmtPortal.DAL
     
         public DbSet<Message> Messages { get; set; }
         public DbSet<Organization> Organizations { get; set; }
+        //public IQueryable Organizations { get; set; }
         public DbSet<sysdiagram> sysdiagrams { get; set; }
         public DbSet<User> Users { get; set; }
     }

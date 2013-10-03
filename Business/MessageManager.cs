@@ -13,11 +13,12 @@ namespace Business
     {
         public void AddMessage(Message message)
         {
-            MessageSvcImpl messageSvcImpl = new MessageSvcImpl();
+            //user factory to get message service
+            var messageSvc = Factory.GetMessageSvc();
 
             try
             {
-                messageSvcImpl.AddMessage(message);
+                messageSvc.AddMessage(message);
             }
             catch (Exception e)
             {
@@ -28,12 +29,13 @@ namespace Business
 
         public Message GetMessage(int messageId)
         {
-            MessageSvcImpl messageSvcImpl = new MessageSvcImpl();
             Message message = new Message();
-
             try
             {
-                message = messageSvcImpl.GetMessage(messageId);
+                //user factory to get message service
+                var messageSvc = Factory.GetMessageSvc();
+                
+                message = messageSvc.GetMessage(messageId);
             }
             catch (MessageNotFoundException mnfe)
             {
@@ -50,13 +52,13 @@ namespace Business
 
         public List<Message> GetOrganizationMessages(int organizationId)
         {
-            MessageSvcImpl messageSvcImpl = new MessageSvcImpl();
-            Message message = new Message();
+            //user factory to get message service
+            var messageSvc = Factory.GetMessageSvc();
             List<Message> orgMessages = new List<Message>();
 
             try
             {
-                orgMessages = messageSvcImpl.GetOrganizationMessages(organizationId);
+                orgMessages = messageSvc.GetOrganizationMessages(organizationId);
             }
             catch (Exception e)
             {
@@ -68,12 +70,13 @@ namespace Business
 
         public List<Message> GetCorrelatedMessages(int correlationId)
         {
-            MessageSvcImpl messageSvcImpl = new MessageSvcImpl();
+            //user factory to get message service
+            var messageSvc = Factory.GetMessageSvc();
             List<Message> correlatedMessages = new List<Message>();
 
             try
             {
-                correlatedMessages = messageSvcImpl.GetOrganizationMessages(correlationId);
+                correlatedMessages = messageSvc.GetOrganizationMessages(correlationId);
             }
             catch (Exception e)
             {

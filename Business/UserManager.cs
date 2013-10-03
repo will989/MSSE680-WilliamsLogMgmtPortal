@@ -13,11 +13,12 @@ namespace Business
     {
         public void AddUser(User user)
         {
-            UserSvcImpl userSvcImpl = new UserSvcImpl();
 
             try
             {
-                userSvcImpl.AddUser(user);
+                //user factory to get service implementations
+                var userSvc = Factory.GetUserSvc();
+                userSvc.AddUser(user);
             }
             catch (Exception e)
             {
@@ -28,12 +29,14 @@ namespace Business
 
         public User GetUser(int userId)
         {
-            UserSvcImpl userSvcImpl = new UserSvcImpl();
+            
             User user = new User();
 
             try
             {
-                user = userSvcImpl.GetUser(userId);
+                //user factory to get service implementations
+                var userSvc = Factory.GetUserSvc();
+                user = userSvc.GetUser(userId);
             }
             catch (UserNotFoundException unfe)
             {
@@ -50,11 +53,12 @@ namespace Business
 
         public void UpdateUser(User user)
         {
-            UserSvcImpl userSvcImpl = new UserSvcImpl();
 
             try
             {
-                userSvcImpl.UpdateUser(user);
+                //user factory to get service implementations
+                var userSvc = Factory.GetUserSvc();
+                userSvc.UpdateUser(user);
             }
             catch (Exception e)
             {
@@ -68,12 +72,12 @@ namespace Business
         public void DeleteUser(User user)
         {
 
-            UserSvcImpl userSvcImpl = new UserSvcImpl();
-
             try
             {
                 int userId = user.UserId;
-                userSvcImpl.DeleteUser(user);
+                //user factory to get service implementations
+                var userSvc = Factory.GetUserSvc();
+                userSvc.DeleteUser(user);
                 Debug.WriteLine("User with userId " + userId + "was deleted.");
             }
             catch (Exception e)

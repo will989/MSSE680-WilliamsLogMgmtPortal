@@ -13,11 +13,12 @@ namespace Business
     {
         public void AddOrganization(Organization organization)
         {
-            OrganizationSvcImpl organizationSvcImpl = new OrganizationSvcImpl();
+            //user factory to get service implementations
+            var organizationSvc = Factory.GetOrganizationSvc();
 
             try
             {
-                organizationSvcImpl.AddOrganization(organization);
+                organizationSvc.AddOrganization(organization);
             }
             catch (Exception e)
             {
@@ -28,12 +29,14 @@ namespace Business
 
         public Organization GetOrganization(int organizationId)
         {
-            OrganizationSvcImpl organizationSvcImpl = new OrganizationSvcImpl();
+           
             Organization organization = new Organization();
 
             try
             {
-                organization = organizationSvcImpl.GetOrganization(organizationId);
+                //user factory to get service implementations
+                var organizationSvc = Factory.GetOrganizationSvc();
+                organization = organizationSvc.GetOrganization(organizationId);
             }
             catch (OrganizationNotFoundException onfe)
             {
@@ -50,11 +53,12 @@ namespace Business
 
         public void UpdateOrganization(Organization organization)
         {
-            OrganizationSvcImpl organizationSvcImpl = new OrganizationSvcImpl();
 
             try
             {
-                organizationSvcImpl.UpdateOrganization(organization);
+                //user factory to get service implementations
+                var organizationSvc = Factory.GetOrganizationSvc();
+                organizationSvc.UpdateOrganization(organization);
             }
             catch (Exception e)
             {
@@ -65,22 +69,23 @@ namespace Business
 
         public void DeleteOrganization(Organization organization)
         {
-            OrganizationSvcImpl organizationSvcImpl = new OrganizationSvcImpl();
-            MessageSvcImpl messageSvcImpl = new MessageSvcImpl();
-            UserSvcImpl userSvcImpl = new UserSvcImpl();
 
             try
             {
+                //user factory to get service implementations
+                var organizationSvc = Factory.GetOrganizationSvc();
+                var messageSvc = Factory.GetMessageSvc();
+                var userSvc = Factory.GetUserSvc();
                 int orgId = organization.OrganizationId;
-                List<Message> orgMessages = messageSvcImpl.GetOrganizationMessages(orgId).ToList<Message>();
-                List<User> orgUsers = userSvcImpl.GetOrganizationUsers(orgId).ToList<User>();
+                List<Message> orgMessages = messageSvc.GetOrganizationMessages(orgId).ToList<Message>();
+                List<User> orgUsers = userSvc.GetOrganizationUsers(orgId).ToList<User>();
 
                 //an organization can only be deleted if there are no messages
                 //and there are no users associated with the organization
                 //otherwise the organization should just be inactivated
                 if ((orgMessages.Count == 0) && (orgUsers.Count == 0))
                 {
-                    organizationSvcImpl.DeleteOrganization(organization);
+                    organizationSvc.DeleteOrganization(organization);
                 }
                 else
                 {

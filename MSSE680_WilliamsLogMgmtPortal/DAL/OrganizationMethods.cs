@@ -34,6 +34,7 @@ namespace MSSE680_WilliamsLogMgmtPortal.DAL
             return true;
         }//end equals
 
+        public virtual ICollection<Organization> Organizations { get; set; }
 
     }
 }
