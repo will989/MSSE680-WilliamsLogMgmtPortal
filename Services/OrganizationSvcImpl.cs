@@ -71,7 +71,16 @@ namespace Services
             //delete the organization
             organizationRepository.Delete(organization);
         }
+
+        List<Organization> IOrganizationService.GetAllOrganizations()
+        {
          
+            var orgRepo = new DataRepository<Organization>();
+            List<Organization> orgList = orgRepo.GetAll().ToList<Organization>();
+
+            return orgList;
+
+        }
     }
 
 }

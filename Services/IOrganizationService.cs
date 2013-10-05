@@ -1,4 +1,5 @@
-﻿using MSSE680_WilliamsLogMgmtPortal.DAL;
+﻿using System.Collections.Generic;
+using MSSE680_WilliamsLogMgmtPortal.DAL;
 
 namespace Services
 {
@@ -9,6 +10,10 @@ namespace Services
         Organization GetOrganization(int id);
         void UpdateOrganization(Organization organization);
         void DeleteOrganization(Organization organization);
+
+
+        //System.Collections.Generic.List<Organization> GetAllOrganizations { get; set; }
+        List<Organization> GetAllOrganizations();
 
     }
 }

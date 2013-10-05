@@ -9,11 +9,11 @@ using Services;
 
 namespace Business
 {
-    class OrganizationManager
+    public class OrganizationManager
     {
         public void AddOrganization(Organization organization)
         {
-            //user factory to get service implementations
+            //use factory to get service implementations
             var organizationSvc = Factory.GetOrganizationSvc();
 
             try
@@ -34,7 +34,7 @@ namespace Business
 
             try
             {
-                //user factory to get service implementations
+                //use factory to get service implementations
                 var organizationSvc = Factory.GetOrganizationSvc();
                 organization = organizationSvc.GetOrganization(organizationId);
             }
@@ -49,6 +49,27 @@ namespace Business
             }
 
             return organization;
+        }
+
+        public List<Organization> GetAllOrganizations()
+        {
+            //use factory to get service implementations
+            var organizationSvc = Factory.GetOrganizationSvc();
+            List<Organization> orgList = new List<Organization>();
+
+
+            try
+            {
+            var orgRepo = new DataRepository<Organization>();
+            orgList = orgRepo.GetAll().ToList<Organization>();
+                
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("Exception caught while getting list of messages" + e);
+            }
+
+            return orgList;
         }
 
         public void UpdateOrganization(Organization organization)

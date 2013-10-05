@@ -17,10 +17,9 @@ namespace Business
                 User user = new User();
 
                 //if the factory is working, do it this way...
-                var factory = new Factory();
-                IUserService userSvc = new UserSvcImpl();
-                factory.GetService(typeof(IUserService).Name);
-
+                //user factory to get service implementations
+                var userSvc = Factory.GetUserSvc();
+                
                 if (userSvc != null)
                 {
                     user = userSvc.GetUser(username);
