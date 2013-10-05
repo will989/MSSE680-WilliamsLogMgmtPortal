@@ -104,7 +104,7 @@ namespace Business
                 int orgId = organization.OrganizationId;
 
                 List<Message> orgMessages = messageManager.GetOrganizationMessages(orgId).ToList<Message>();
-                List<User> orgUsers = userSvc.GetOrganizationUsers(orgId).ToList<User>();
+                List<User> orgUsers = userManager.GetOrganizationUsers(orgId).ToList<User>();
 
                 //an organization can only be deleted if there are no messages
                 //and there are no users associated with the organization
