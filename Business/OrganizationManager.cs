@@ -13,13 +13,12 @@ namespace Business
     {
         public void AddOrganization(Organization organization)
         {
-            //create new Organization Manager
-            var organizationManager = new OrganizationManager();
+            //use factory to get service implementations
+            var organizationSvc = Factory.GetOrganizationSvc();
 
             try
             {
-                //use the manager to determine how organizaton's are being added
-                organizationManager.AddOrganization(organization);
+                organizationSvc.AddOrganization(organization);
             }
             catch (Exception e)
             {
@@ -31,14 +30,13 @@ namespace Business
         public Organization GetOrganization(int organizationId)
         {
 
-            //create new Organization Manager
-            var organizationManager = new OrganizationManager();
             Organization organization = new Organization();
 
             try
             {
-                //user manager to determine how we are getting organizations
-                organization = organizationManager.GetOrganization(organizationId);
+                //use factory to get service implementations
+                var organizationSvc = Factory.GetOrganizationSvc();
+                organization = organizationSvc.GetOrganization(organizationId);
             }
             catch (OrganizationNotFoundException onfe)
             {
@@ -55,16 +53,16 @@ namespace Business
 
         public List<Organization> GetAllOrganizations()
         {
-            //create new Organization Manager
-            var organizationManager = new OrganizationManager();
+            //use factory to get service implementations
+            var organizationSvc = Factory.GetOrganizationSvc();
             List<Organization> orgList = new List<Organization>();
 
 
             try
             {
-            var orgRepo = new DataRepository<Organization>();
-            orgList = orgRepo.GetAll().ToList<Organization>();
-                
+                var orgRepo = new DataRepository<Organization>();
+                orgList = orgRepo.GetAll().ToList<Organization>();
+
             }
             catch (Exception e)
             {
@@ -79,10 +77,9 @@ namespace Business
 
             try
             {
-                //create new Organization Manager
-                var organizationManager = new OrganizationManager();
-                //user manager to determine how we are updating organizations
-                organizationManager.UpdateOrganization(organization);
+                //user factory to get service implementations
+                var organizationSvc = Factory.GetOrganizationSvc();
+                organizationSvc.UpdateOrganization(organization);
             }
             catch (Exception e)
             {
@@ -97,21 +94,19 @@ namespace Business
             try
             {
                 //user factory to get service implementations
-                //create new Managers
-                var organizationManager = new OrganizationManager();
-                var messageManager = new MessageManager();
-                var userManager = new UserManager();
+                var organizationSvc = Factory.GetOrganizationSvc();
+                var messageSvc = Factory.GetMessageSvc();
+                var userSvc = Factory.GetUserSvc();
                 int orgId = organization.OrganizationId;
-
-                List<Message> orgMessages = messageManager.GetOrganizationMessages(orgId).ToList<Message>();
-                List<User> orgUsers = userManager.GetOrganizationUsers(orgId).ToList<User>();
+                List<Message> orgMessages = messageSvc.GetOrganizationMessages(orgId).ToList<Message>();
+                List<User> orgUsers = userSvc.GetOrganizationUsers(orgId).ToList<User>();
 
                 //an organization can only be deleted if there are no messages
                 //and there are no users associated with the organization
                 //otherwise the organization should just be inactivated
                 if ((orgMessages.Count == 0) && (orgUsers.Count == 0))
                 {
-                    organizationManager.DeleteOrganization(organization);
+                    organizationSvc.DeleteOrganization(organization);
                 }
                 else
                 {

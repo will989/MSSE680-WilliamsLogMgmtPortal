@@ -11,7 +11,7 @@ using Services;
 namespace BusinessUnitTests
 {
     [TestClass]
-    public class MessageServiceTests
+    public class MessageManagerTests
     {
         //inserts an organization into the database using the repository
         [TestMethod()]
@@ -29,9 +29,17 @@ namespace BusinessUnitTests
             message1.Severity = 3;
             message1.OrgMessage = "This is a test message";
             message1.Timestamp = current;
-           
-           //user manager to add message
-            messageManager.AddMessage(message1);
+            try
+            {
+
+                //user manager to add message
+                messageManager.AddMessage(message1);
+            }
+            catch (MessageNotFoundException)
+            {
+                Debug.WriteLine("Caught exception: Message was not added");
+            }
+
 
            //pre-factory implementation
            //add message to database using MessageSvcImpl
