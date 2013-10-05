@@ -2,6 +2,7 @@
 //under ServicesUnitTest
 using System;
 using System.Diagnostics;
+using Business;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MSSE680_WilliamsLogMgmtPortal.DAL;
 using Services;
@@ -16,7 +17,7 @@ namespace BusinessUnitTests
         [TestMethod()]
         public void BusinessMessageMgrInsertMessageUsingMessageSvcImpl()
         {
-            var factory = new Factory();
+            var messageManager = new MessageManager();
             
             DateTime current = System.DateTime.Now;
 
@@ -29,14 +30,13 @@ namespace BusinessUnitTests
             message1.OrgMessage = "This is a test message";
             message1.Timestamp = current;
            
-           //factory not working...
-           //add message using factory to create necessary service
-           //IMessageService messageSvc = (IMessageService)factory.GetService(typeof(IMessageService).Name);
-           // messageSvc.AddMessage(message1);
+           //user manager to add message
+            messageManager.AddMessage(message1);
 
+           //pre-factory implementation
            //add message to database using MessageSvcImpl
-           MessageSvcImpl msgSvcImpl = new MessageSvcImpl();
-           msgSvcImpl.AddMessage(message1);
+           //MessageSvcImpl msgSvcImpl = new MessageSvcImpl();
+           //msgSvcImpl.AddMessage(message1);
 
         }
 
@@ -45,12 +45,12 @@ namespace BusinessUnitTests
         public void GetMessagesTest()
         {
             Message message = new Message();
-
+            var messageManager = new MessageManager();
 
             try
             {
-                MessageSvcImpl msgSvcImpl = new MessageSvcImpl();
-                message = msgSvcImpl.GetMessage(1);
+                
+                message = messageManager.GetMessage(1);
             }
             catch (MessageNotFoundException)
             {

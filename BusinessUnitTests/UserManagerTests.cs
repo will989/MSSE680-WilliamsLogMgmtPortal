@@ -1,6 +1,7 @@
 ﻿//needed to add MSSE680_WilliamsLogMgmtPortal as a Reference
 //under ServicesUnitTest
 using System;
+using Business;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MSSE680_WilliamsLogMgmtPortal.DAL;
 using Services;
@@ -14,7 +15,7 @@ namespace BusinessUnitTests
         [TestMethod()]
         public void BusinessUserManagerInsertUserUsingUserSvcImpl()
         {
-            var factory = new Factory();
+            var userManager = new UserManager();
             DateTime current = System.DateTime.Now;
             User user = new User();
             user.UserName = "userSvcImpl";
@@ -26,13 +27,13 @@ namespace BusinessUnitTests
             user.ActiveDate = current;
 
 
-            //add user using factory to create necessary service
-            //IUserService userSvc = (IUserService)factory.GetService(typeof(IUserService).Name);
-            //userSvc.AddUser(user);
+            //use manager to add user
+            userManager.AddUser(user);
 
+            //pre-factory implementation
             //add user to database using UserSvcImpl
-            UserSvcImpl userSvcImpl = new UserSvcImpl();
-            userSvcImpl.AddUser(user);
+            //UserSvcImpl userSvcImpl = new UserSvcImpl();
+            //userSvcImpl.AddUser(user);
 
         }
     }

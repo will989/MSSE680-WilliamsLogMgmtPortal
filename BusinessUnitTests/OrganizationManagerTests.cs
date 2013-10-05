@@ -1,5 +1,7 @@
 ﻿//needed to add MSSE680_WilliamsLogMgmtPortal as a Reference
 //under ServicesUnitTest
+
+using Business;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MSSE680_WilliamsLogMgmtPortal.DAL;
 using Services;
@@ -14,6 +16,7 @@ namespace BusinessUnitTests
         {
             var factory = new Factory();
             Organization organization = new Organization();
+            var organizationManager = new OrganizationManager();
             //organization.OrganizationId = 1;  - this is auto-assigned in db
             organization.Name = "Service Implementation Organization";
             organization.Street = "Service Blvd";
@@ -22,14 +25,14 @@ namespace BusinessUnitTests
             organization.Zip = "80601";
             organization.StartDate = System.DateTime.Now;
 
-            //add organization using factory to create necessary service
-            //IOrganizationService organizationSvc = (IOrganizationService)factory.GetService(typeof(IOrganizationService).Name);
-            //organizationSvc.AddOrganization(organization);
+            //use org manager to add organization
+            organizationManager.AddOrganization(organization);
+
 
             //pre-factory implementation
             //add organization to database using OrganizationSvcImpl
-            OrganizationSvcImpl orgSvcImpl = new OrganizationSvcImpl();
-            orgSvcImpl.AddOrganization(organization);
+            //OrganizationSvcImpl orgSvcImpl = new OrganizationSvcImpl();
+            //orgSvcImpl.AddOrganization(organization);
 
         }
     }

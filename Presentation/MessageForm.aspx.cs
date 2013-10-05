@@ -54,16 +54,12 @@ namespace Presentation
                 Label1.Text = "Your message has been added.";
             }
 
-            
-
         }
 
-        protected void Button2_Click(object sender, EventArgs e)
+        protected void ObjectDataSource1_Selecting1(object sender, ObjectDataSourceSelectingEventArgs e)
         {
-            
-            //set the SendingOrgId field to the value selected from the list box
-            this.SendingOrgId.Text = ListBox1.DataSourceID;
-
+            throw new NotImplementedException();
         }
+
     }
 }

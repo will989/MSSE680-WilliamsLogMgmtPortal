@@ -9,7 +9,7 @@ using Services;
 
 namespace Business
 {
-    class UserManager
+    public class UserManager
     {
         public void AddUser(User user)
         {
@@ -85,6 +85,15 @@ namespace Business
                 Debug.WriteLine("Exception caught while deleting user" + e);
             }
 
+        }
+
+        public List<User> GetOrganizationUsers(int orgId)
+        {
+            
+            var userRepo = new DataRepository<User>();
+            List<User> orgUsers = userRepo.GetBySpecificKey("OrganizationId", orgId).ToList<User>();
+
+            return orgUsers;
         }
 
     }

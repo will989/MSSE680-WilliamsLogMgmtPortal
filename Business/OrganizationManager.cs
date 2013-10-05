@@ -13,12 +13,13 @@ namespace Business
     {
         public void AddOrganization(Organization organization)
         {
-            //use factory to get service implementations
-            var organizationSvc = Factory.GetOrganizationSvc();
+            //create new Organization Manager
+            var organizationManager = new OrganizationManager();
 
             try
             {
-                organizationSvc.AddOrganization(organization);
+                //use the manager to determine how organizaton's are being added
+                organizationManager.AddOrganization(organization);
             }
             catch (Exception e)
             {
@@ -29,14 +30,15 @@ namespace Business
 
         public Organization GetOrganization(int organizationId)
         {
-           
+
+            //create new Organization Manager
+            var organizationManager = new OrganizationManager();
             Organization organization = new Organization();
 
             try
             {
-                //use factory to get service implementations
-                var organizationSvc = Factory.GetOrganizationSvc();
-                organization = organizationSvc.GetOrganization(organizationId);
+                //user manager to determine how we are getting organizations
+                organization = organizationManager.GetOrganization(organizationId);
             }
             catch (OrganizationNotFoundException onfe)
             {
@@ -53,8 +55,8 @@ namespace Business
 
         public List<Organization> GetAllOrganizations()
         {
-            //use factory to get service implementations
-            var organizationSvc = Factory.GetOrganizationSvc();
+            //create new Organization Manager
+            var organizationManager = new OrganizationManager();
             List<Organization> orgList = new List<Organization>();
 
 
@@ -77,9 +79,10 @@ namespace Business
 
             try
             {
-                //user factory to get service implementations
-                var organizationSvc = Factory.GetOrganizationSvc();
-                organizationSvc.UpdateOrganization(organization);
+                //create new Organization Manager
+                var organizationManager = new OrganizationManager();
+                //user manager to determine how we are updating organizations
+                organizationManager.UpdateOrganization(organization);
             }
             catch (Exception e)
             {
@@ -94,11 +97,13 @@ namespace Business
             try
             {
                 //user factory to get service implementations
-                var organizationSvc = Factory.GetOrganizationSvc();
-                var messageSvc = Factory.GetMessageSvc();
-                var userSvc = Factory.GetUserSvc();
+                //create new Managers
+                var organizationManager = new OrganizationManager();
+                var messageManager = new MessageManager();
+                var userManager = new UserManager();
                 int orgId = organization.OrganizationId;
-                List<Message> orgMessages = messageSvc.GetOrganizationMessages(orgId).ToList<Message>();
+
+                List<Message> orgMessages = messageManager.GetOrganizationMessages(orgId).ToList<Message>();
                 List<User> orgUsers = userSvc.GetOrganizationUsers(orgId).ToList<User>();
 
                 //an organization can only be deleted if there are no messages
@@ -106,7 +111,7 @@ namespace Business
                 //otherwise the organization should just be inactivated
                 if ((orgMessages.Count == 0) && (orgUsers.Count == 0))
                 {
-                    organizationSvc.DeleteOrganization(organization);
+                    organizationManager.DeleteOrganization(organization);
                 }
                 else
                 {

@@ -13,12 +13,13 @@ namespace Business
     {
         public void AddMessage(Message message)
         {
-            //user factory to get message service
-            var messageSvc = Factory.GetMessageSvc();
+            //create new MessageManager object
+            MessageManager messageManager = new MessageManager();
 
             try
             {
-                messageSvc.AddMessage(message);
+                //let the Message Manager figure out how we are adding messages
+                messageManager.AddMessage(message);
             }
             catch (Exception e)
             {
@@ -30,12 +31,14 @@ namespace Business
         public Message GetMessage(int messageId)
         {
             Message message = new Message();
+
+            //create new MessageManager object
+            MessageManager messageManager = new MessageManager();
+
             try
             {
-                //user factory to get message service
-                var messageSvc = Factory.GetMessageSvc();
-                
-                message = messageSvc.GetMessage(messageId);
+                //let the Message Manager figure out how we are getting messages
+                message = messageManager.GetMessage(messageId);
             }
             catch (MessageNotFoundException mnfe)
             {
@@ -52,13 +55,14 @@ namespace Business
 
         public List<Message> GetOrganizationMessages(int organizationId)
         {
-            //user factory to get message service
-            var messageSvc = Factory.GetMessageSvc();
+            //use manager to get organization messages
             List<Message> orgMessages = new List<Message>();
+            MessageManager messageManager = new MessageManager();
 
             try
             {
-                orgMessages = messageSvc.GetOrganizationMessages(organizationId);
+                //use the message manager to figure out how to get an organization's messages
+                orgMessages = messageManager.GetOrganizationMessages(organizationId);
             }
             catch (Exception e)
             {
@@ -70,13 +74,13 @@ namespace Business
 
         public List<Message> GetCorrelatedMessages(int correlationId)
         {
-            //user factory to get message service
-            var messageSvc = Factory.GetMessageSvc();
+            //user manager to get related messages
+            MessageManager messageManager = new MessageManager();
             List<Message> correlatedMessages = new List<Message>();
 
             try
             {
-                correlatedMessages = messageSvc.GetOrganizationMessages(correlationId);
+                correlatedMessages = messageManager.GetOrganizationMessages(correlationId);
             }
             catch (Exception e)
             {

@@ -10,7 +10,7 @@
 namespace Presentation {
     
     
-    public partial class MessageForm {
+    public partial class UserForm {
         
         /// <summary>
         /// form1 control.
@@ -22,40 +22,40 @@ namespace Presentation {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// RequiredFieldValidator1 control.
+        /// UserName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        protected global::System.Web.UI.WebControls.TextBox UserName;
         
         /// <summary>
-        /// CorrelationId control.
+        /// Password control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox CorrelationId;
+        protected global::System.Web.UI.WebControls.TextBox Password;
         
         /// <summary>
-        /// RegularExpressionValidator1 control.
+        /// FirstName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+        protected global::System.Web.UI.WebControls.TextBox FirstName;
         
         /// <summary>
-        /// SendingOrgId control.
+        /// LastName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SendingOrgId;
+        protected global::System.Web.UI.WebControls.TextBox LastName;
         
         /// <summary>
         /// SqlDataSource1 control.
@@ -76,31 +76,31 @@ namespace Presentation {
         protected global::System.Web.UI.WebControls.ListBox ListBox1;
         
         /// <summary>
-        /// ReceivingOrgId control.
+        /// AdminFlag control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ReceivingOrgId;
+        protected global::System.Web.UI.WebControls.CheckBox AdminFlag;
         
         /// <summary>
-        /// Severity control.
+        /// ActiveDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Severity;
+        protected global::System.Web.UI.WebControls.Calendar ActiveDate;
         
         /// <summary>
-        /// Message control.
+        /// InactiveDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Message;
+        protected global::System.Web.UI.WebControls.Calendar InactiveDate;
         
         /// <summary>
         /// Button1 control.
