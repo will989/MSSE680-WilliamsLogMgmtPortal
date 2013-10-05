@@ -57,10 +57,18 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="MessageForm.aspx" />
     <Content Include="OrganizationForm.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MessageForm.aspx.cs">
+      <DependentUpon>MessageForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MessageForm.aspx.designer.cs">
+      <DependentUpon>MessageForm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="OrganizationForm.aspx.cs">
       <DependentUpon>OrganizationForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

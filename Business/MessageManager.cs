@@ -9,7 +9,7 @@ using Services;
 
 namespace Business
 {
-    class MessageManager
+    public class MessageManager
     {
         public void AddMessage(Message message)
         {

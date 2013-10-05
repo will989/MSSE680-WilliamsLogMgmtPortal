@@ -50,9 +50,20 @@
         
         <br/>
         <br />
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="OrganizationId" DataSourceID="SqlDataSource1">
+            <Columns>
+                <asp:BoundField DataField="OrganizationId" HeaderText="OrganizationId" InsertVisible="False" ReadOnly="True" SortExpression="OrganizationId"></asp:BoundField>
+                <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name"></asp:BoundField>
+                <asp:BoundField DataField="Street" HeaderText="Street" SortExpression="Street"></asp:BoundField>
+                <asp:BoundField DataField="City" HeaderText="City" SortExpression="City"></asp:BoundField>
+                <asp:BoundField DataField="State" HeaderText="State" SortExpression="State"></asp:BoundField>
+                <asp:BoundField DataField="Zip" HeaderText="Zip" SortExpression="Zip"></asp:BoundField>
+                <asp:BoundField DataField="StartDate" HeaderText="StartDate" SortExpression="StartDate"></asp:BoundField>
+                <asp:BoundField DataField="EndDate" HeaderText="EndDate" SortExpression="EndDate"></asp:BoundField>
+            </Columns>
+        </asp:GridView>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:andy680ConnectionString %>" SelectCommand="SELECT [OrganizationId], [Name], [Street], [City], [State], [Zip], [StartDate], [EndDate] FROM [Organizations]"></asp:SqlDataSource>
         <br />
-        <asp:LinqDataSource ID="LinqDataSource1" runat="server">
-        </asp:LinqDataSource>
         <br/></div></form>
 
         
