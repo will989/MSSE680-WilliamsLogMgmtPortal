@@ -5,6 +5,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head runat="server">
         <title>Manage Messages</title>
+        <style type="text/css">
+            .auto-style1 {
+                height: 26px;
+            }
+        </style>
     </head>
     <body>
         <form id="form1" runat="server">
@@ -30,11 +35,16 @@
                         </td>
                     </tr>   
                     <tr>
-                        <td>Receiving Organization Id</td>
-                        <td><asp:TextBox ID="ReceivingOrgId" runat="server" ></asp:TextBox></td>
+                        <td>Receiving Organization Id<asp:TextBox ID="ReceivingOrgId" runat="server" ></asp:TextBox></td>
                     </tr>
                     <tr>
-                        <td>Severity</td>
+                        <td>
+                            <asp:ListBox ID="ListBox2" runat="server" DataSourceID="SqlDataSource1" DataTextField="Name" DataValueField="OrganizationId"></asp:ListBox>   
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Severity
+                        </td>
                         <td><asp:TextBox ID="Severity" runat="server" ></asp:TextBox></td>
                     </tr>
                     <tr>
