@@ -18,7 +18,7 @@ namespace BusinessUnitTests
 
             bool authorized = false;
             authorized = AuthenticateUser.AuthUser(username, password);
-
+            
             Assert.IsTrue(authorized);
 
         }

@@ -25,7 +25,7 @@ namespace Presentation
             bool result = AuthenticateUser.AuthUser(userName, password);
            // part of example but not needed since this is handled differently in the Business layer
            // bool result = UserLogin(userName, password);
-            if ((result))
+            if (result)
             {
                 e.Authenticated = true;
             }
